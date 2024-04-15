@@ -1,84 +1,76 @@
-import React, { useState } from "react";
-import { StyleSheet, View, Text, SafeAreaView } from "react-native";
-import InputField from "../../components/inputField";
-import CustomButton from "../../components/CustomButton";
+import React from 'react';
+import {StyleSheet, View, SafeAreaView} from 'react-native';
+import InputField from '../../components/inputField';
+import CustomButton from '../../components/CustomButton';
+import useForm from '../../hooks/useForm';
 
-function LoginScreen(){
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  //
-  // const handleChangeEmail = (text:string) => {
-  //   setEmail(text);
-  // };
-  //
-  // const handleChangePassword = (text:string) => {
-  //   setPassword(text);
-  // };
+type UserInfomation = {
+  email: string;
+  password: string;
+};
 
-  const [values, setValues] = useState({
-    email: false,
-    password: false
-  });
-
-  const [touched, setTouched] = useState({
+function validateLogin(values: UserInfomation) {
+  const errors = {
     email: '',
-    password: ''
+    password: '',
+  };
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+    errors.email = '올바른 이메일 형식이 아닙니다.';
+  }
+  if (!(values.password.length >= 8 && values.password.length < 20)) {
+    errors.password = '비밀번호는 8~20자 사이로 입력해주세요.';
+  }
+  return errors;
+}
+
+function LoginScreen() {
+  const login = useForm({
+    initialValue: {email: '', password: ''},
+    validate: validateLogin,
   });
 
-  const handleChangeText = (name: string, text: string) =>{
-    setValues({
-      ...values,
-      [name]: text,
-    })
-  }
+  const handleSubmit = () => {
+    console.log('values', login.values);
+  };
 
-  const handleBlur = (name: string) => {
-    setTouched({
-      ...touched,
-      [name]: true,
-    })
-  }
-
-  const handleSubmit = () =>{
-    console.log('values', values);
-  }
-
-  return(
+  return (
     <SafeAreaView style={styles.container}>
-    <View style={styles.inputContainer}>
-      <InputField
-        placeholder='이메일'
-        error={'이메일을 입력해주세요'}
-        touched={touched.email}
-        inputMode="email"
-        value={values.email}
-        onChangeText={(text)=>handleChangeText('email',text)}
-        onBlur={() => handleBlur('email')}
+      <View style={styles.inputContainer}>
+        <InputField
+          placeholder="이메일"
+          error={login.errors.email}
+          touched={login.touched.email}
+          inputMode="email"
+          {...login.getTextInputProps('email')}
+        />
+        <InputField
+          placeholder="비밀번호"
+          error={login.errors.password}
+          touched={login.touched.password}
+          secureTextEntry
+          {...login.getTextInputProps('password')}
+        />
+      </View>
+      <CustomButton
+        label="로그인"
+        variant="filled"
+        size="large"
+        onPress={handleSubmit}
       />
-      <InputField
-        placeholder='비밀번호'
-        error={'비밀번호를 입력해주세요'}
-        touched={touched.password}
-        secureTextEntry
-        value={values.password}
-        onChangeText={(text)=>handleChangeText('password',text)}
-        onBlur={() => handleBlur('password')}
-      />
-    </View>
-      <CustomButton label='로그인' variant='filled' size='large' onPress={handleSubmit}/>
     </SafeAreaView>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    margin:30
+  container: {
+    flex: 1,
+    margin: 30,
   },
-  inputContainer:{
+  inputContainer: {
     gap: 20,
     marginBottom: 30,
-  }
+  },
 });
 
 export default LoginScreen;

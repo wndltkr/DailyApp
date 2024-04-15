@@ -1,12 +1,12 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import RootNavigator from "./src/navigations/root/RootNavigator";
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import RootNavigator from './src/navigations/root/RootNavigator';
 
-function App(){
+function App() {
   return (
-        <NavigationContainer>
-          <RootNavigator/>
-        </NavigationContainer>
+    <NavigationContainer>
+      <RootNavigator />
+    </NavigationContainer>
   );
 }
 
