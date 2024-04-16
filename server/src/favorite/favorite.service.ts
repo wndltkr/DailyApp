@@ -2,7 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Favorite } from './favorite.entity';
 import { Repository } from 'typeorm';
-import { User } from 'server/src/auth/user.entity';
+import { User } from 'src/auth/user.entity';
 
 @Injectable()
 export class FavoriteService {

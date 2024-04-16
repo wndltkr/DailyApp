@@ -17,7 +17,7 @@ import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { EditProfileDto } from './dto/edit-profile.dto';
-import { MarkerColor } from 'server/src/post/marker-color.enum';
+import { MarkerColor } from 'src/post/marker-color.enum';
 
 @Injectable()
 export class AuthService {

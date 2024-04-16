@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ImageController } from './image.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthModule } from 'server/src/auth/auth.module';
+import { AuthModule } from 'src/auth/auth.module';
 import { Image } from './image.entity';
 
 @Module({

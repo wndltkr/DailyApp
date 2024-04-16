@@ -11,7 +11,7 @@ import {
   UseInterceptors,
 } from '@nestjs/common';
 
-import { numbers } from 'server/src/@common/constants';
+import { numbers } from 'src/@common/constants';
 
 try {
   fs.readdirSync('uploads');

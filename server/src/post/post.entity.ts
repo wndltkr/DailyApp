@@ -11,10 +11,10 @@ import {
 } from 'typeorm';
 
 import { MarkerColor } from './marker-color.enum';
-import { ColumnNumericTransformer } from 'server/src/@common/transformers/numeric.transformer';
-import { User } from 'server/src/auth/user.entity';
-import { Image } from 'server/src/image/image.entity';
-import { Favorite } from 'server/src/favorite/favorite.entity';
+import { ColumnNumericTransformer } from 'src/@common/transformers/numeric.transformer';
+import { User } from 'src/auth/user.entity';
+import { Image } from 'src/image/image.entity';
+import { Favorite } from 'src/favorite/favorite.entity';
 
 @Entity()
 export class Post extends BaseEntity {

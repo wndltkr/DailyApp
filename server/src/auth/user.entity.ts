@@ -1,6 +1,6 @@
-import { Favorite } from 'server/src/favorite/favorite.entity';
-import { MarkerColor } from 'server/src/post/marker-color.enum';
-import { Post } from 'server/src/post/post.entity';
+import { Favorite } from 'src/favorite/favorite.entity';
+import { MarkerColor } from 'src/post/marker-color.enum';
+import { Post } from 'src/post/post.entity';
 import {
   BaseEntity,
   Column,

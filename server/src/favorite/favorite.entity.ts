@@ -1,5 +1,5 @@
-import { User } from 'server/src/auth/user.entity';
-import { Post } from 'server/src/post/post.entity';
+import { User } from 'src/auth/user.entity';
+import { Post } from 'src/post/post.entity';
 import {
   BaseEntity,
   Column,

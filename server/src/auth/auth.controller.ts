@@ -11,10 +11,10 @@ import {
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto/auth.dto';
 import { User } from './user.entity';
-import { GetUser } from 'server/src/@common/decorators/get-user.decorator';
+import { GetUser } from 'src/@common/decorators/get-user.decorator';
 import { AuthGuard } from '@nestjs/passport';
 import { EditProfileDto } from './dto/edit-profile.dto';
-import { MarkerColor } from 'server/src/post/marker-color.enum';
+import { MarkerColor } from 'src/post/marker-color.enum';
 
 @Controller('auth')
 export class AuthController {
