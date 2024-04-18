@@ -6,10 +6,10 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import {AuthStackParamList} from '../../navigations/AuthStackNavigator';
+import {AuthStackParamList} from '@/navigations/stack/AuthStackNavigator';
 import {StackScreenProps} from '@react-navigation/stack';
-import {authStackNavigations} from '../../constants/navigations';
-import CustomButton from '../../components/CustomButton';
+import {authStackNavigations} from '@/constants';
+import CustomButton from '@/components/CustomButton';
 import Image = Animated.Image;
 
 type AuthHomeScreenProps = StackScreenProps<

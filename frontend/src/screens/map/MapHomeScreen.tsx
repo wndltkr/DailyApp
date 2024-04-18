@@ -1,12 +1,12 @@
 import React from 'react';
 import {Button, Text, View} from 'react-native';
-import useAuth from "../../hooks/queries/useAuth";
+import useAuth from '@/hooks/queries/useAuth';
 function MapHomeScreen() {
-    const{logoutMutation} = useAuth();
+  const {logoutMutation} = useAuth();
   return (
     <View>
       <Text>맵 스크린</Text>
-        <Button title='로그아웃' onPress={()=> logoutMutation.mutate(null)}/>
+      <Button title="로그아웃" onPress={() => logoutMutation.mutate(null)} />
     </View>
   );
 }

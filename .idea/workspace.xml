@@ -4,13 +4,23 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="4.16">
-      <change afterPath="$PROJECT_DIR$/frontend/src/constants/keys.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/constants/numbers.ts" afterDir="false" />
+    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="4.18">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/axios.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useAuth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/AuthStackNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/AuthStackNavigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/drawer/MainDrawerNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/drawer/MainDrawerNavigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/root/RootNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/root/RootNavigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/LoginScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/LoginScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/SignupScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/SignupScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/encryptStorage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/encryptStorage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/header.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/header.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +68,12 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\project\DailyApp\frontend\src\navigations\stack" />
+      <recent name="C:\project\DailyApp\frontend\src\stack" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -75,7 +91,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713243337195</updated>
       <workItem from="1713243338892" duration="13929000" />
-      <workItem from="1713399461927" duration="209000" />
+      <workItem from="1713399461927" duration="3203000" />
     </task>
     <task id="LOCAL-00001" summary="4.16">
       <option name="closed" value="true" />
@@ -101,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713256048922</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="4.18">
+      <option name="closed" value="true" />
+      <created>1713399919735</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713399919735</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,6 +133,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="4.16" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.16" />
+    <MESSAGE value="4.18" />
+    <option name="LAST_COMMIT_MESSAGE" value="4.18" />
   </component>
 </project>
