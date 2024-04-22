@@ -4,20 +4,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="4.18">
-      <change afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/MapStatckNavigator.tsx" afterDir="false" />
+    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="4.22">
+      <change afterPath="$PROJECT_DIR$/frontend/src/constants/message.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/usePermission.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useUserLocation.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/DailyApp/AppDelegate.mm" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ios/DailyApp/AppDelegate.mm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/DailyApp/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ios/DailyApp/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ios/Podfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/constants/navigations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/navigations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/drawer/MainDrawerNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/drawer/MainDrawerNavigator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/root/RootNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/root/RootNavigator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/stack/AuthStackNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/AuthStackNavigator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/SignupScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/SignupScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
@@ -95,6 +90,7 @@
       <workItem from="1713243338892" duration="13929000" />
       <workItem from="1713399461927" duration="11328000" />
       <workItem from="1713416228624" duration="5086000" />
+      <workItem from="1713749290687" duration="9500000" />
     </task>
     <task id="LOCAL-00001" summary="4.16">
       <option name="closed" value="true" />
@@ -136,7 +132,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713402829505</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="4.22">
+      <option name="closed" value="true" />
+      <created>1713749328386</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713749328386</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +149,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="4.16" />
     <MESSAGE value="4.18" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.18" />
+    <MESSAGE value="4.22" />
+    <option name="LAST_COMMIT_MESSAGE" value="4.22" />
   </component>
 </project>
