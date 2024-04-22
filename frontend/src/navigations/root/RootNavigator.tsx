@@ -4,7 +4,7 @@ import MainDrawerNavigator from '../drawer/MainDrawerNavigator';
 import useAuth from '@/hooks/queries/useAuth';
 
 function RootNavigator() {
-  const {isLogin} = useAuth();
+  const isLogin = useAuth();
 
   return <>{isLogin ? <MainDrawerNavigator /> : <AuthStackNavigator />}</>;
 }
