@@ -41,6 +41,7 @@ function MapHomeScreen() {
       longitude: userLocation.longitude,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
+
     });
   };
 
