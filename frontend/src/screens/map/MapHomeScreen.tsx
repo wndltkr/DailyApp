@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import {Pressable, StyleSheet, View} from 'react-native';
 //import useAuth from '@/hooks/queries/useAuth';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import {colors} from '@/constants';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
@@ -25,7 +25,7 @@ function MapHomeScreen() {
   //const {logoutMutation} = useAuth();
   const navigation = useNavigation<Navigation>();
   const mapRef = useRef<MapView | null>(null);
-  const {userLocation, isUerLocationError} = useUserLocation();
+  const {userLocation, isUserLocationError} = useUserLocation();
   usePermission('LOCATION');
 
   //const handleLogout = () => {
@@ -33,7 +33,7 @@ function MapHomeScreen() {
   //};
 
   const handlePressUserLocation = () => {
-    if (isUerLocationError) {
+    if (isUserLocationError) {
       return;
     }
     mapRef.current?.animateToRegion({
@@ -53,8 +53,14 @@ function MapHomeScreen() {
         showsUserLocation
         followsUserLocation
         showsMyLocationButton={false}
-        customMapStyle={mapStyle}
-      />
+        customMapStyle={mapStyle}>
+        <Marker
+          coordinate={{
+            latitude: 37.5516032365118,
+            longitude: 126.98989626020192,
+          }}
+        />
+      </MapView>
       <Pressable
         style={[styles.drawerButton, {top: inset.top || 20}]}
         onPress={() => navigation.openDrawer()}>

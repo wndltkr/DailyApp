@@ -28,7 +28,7 @@ function useAppState() {
     };
   }, []);
 
-  return {isComback, appStateVisible};
+  return {isComeback: isComback, appStateVisible};
 }
 
 export default useAppState;
