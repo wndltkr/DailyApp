@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="4.22">
+    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="4.23">
+      <change afterPath="$PROJECT_DIR$/frontend/src/navigations/drawer/CustomDrawerContent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/style/map-Style.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useAppState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useAppState.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useUserLocation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useUserLocation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/drawer/MainDrawerNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/drawer/MainDrawerNavigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,12 +41,16 @@
   &quot;associatedIndex&quot;: 2
 }</component>
   <component name="ProjectId" id="2fAUNXkT7FF8IYeEM9X4hBCCeST" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
@@ -84,7 +94,8 @@
       <workItem from="1713399461927" duration="11328000" />
       <workItem from="1713416228624" duration="5086000" />
       <workItem from="1713749290687" duration="10721000" />
-      <workItem from="1713832324890" duration="1867000" />
+      <workItem from="1713832324890" duration="11567000" />
+      <workItem from="1713853205802" duration="2491000" />
     </task>
     <task id="LOCAL-00001" summary="4.16">
       <option name="closed" value="true" />
@@ -150,16 +161,26 @@
       <option name="project" value="LOCAL" />
       <updated>1713776861835</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="4.23">
+      <option name="closed" value="true" />
+      <created>1713834356127</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713834356127</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="4.16" />
     <MESSAGE value="4.18" />
     <MESSAGE value="4.22" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.22" />
+    <MESSAGE value="4.23" />
+    <option name="LAST_COMMIT_MESSAGE" value="4.23" />
   </component>
 </project>
