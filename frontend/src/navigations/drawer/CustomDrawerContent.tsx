@@ -6,6 +6,7 @@ import {
 import {Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import {colors} from '@/constants';
 import useAuth from '@/hooks/queries/useAuth';
+import React from 'react';
 
 function CustomDrawerContent(props: DrawerContentComponentProps) {
   const {getProfileQuery} = useAuth();

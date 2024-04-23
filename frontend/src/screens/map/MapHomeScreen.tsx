@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
 import {Pressable, StyleSheet, View} from 'react-native';
-import useAuth from '@/hooks/queries/useAuth';
+//import useAuth from '@/hooks/queries/useAuth';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {colors} from '@/constants';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
