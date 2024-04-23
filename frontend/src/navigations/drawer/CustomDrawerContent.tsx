@@ -9,6 +9,7 @@ import useAuth from '@/hooks/queries/useAuth';
 
 function CustomDrawerContent(props: DrawerContentComponentProps) {
   const {getProfileQuery} = useAuth();
+  // @ts-ignore
   const {email, nickname, imageUri, kakaoImageUri} = getProfileQuery.data || {};
   return (
     <SafeAreaView style={styles.container}>
