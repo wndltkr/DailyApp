@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, View} from 'react-native';
 import useAuth from '@/hooks/queries/useAuth';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import {colors} from '@/constants';
@@ -22,15 +22,15 @@ type Navigation = CompositeNavigationProp<
 
 function MapHomeScreen() {
   const inset = useSafeAreaInsets();
-  const {logoutMutation} = useAuth();
+  //const {logoutMutation} = useAuth();
   const navigation = useNavigation<Navigation>();
   const mapRef = useRef<MapView | null>(null);
   const {userLocation, isUerLocationError} = useUserLocation();
   usePermission('LOCATION');
 
-  const handleLogout = () => {
-    logoutMutation.mutate(null);
-  };
+  //const handleLogout = () => {
+  //  logoutMutation.mutate(null);
+  //};
 
   const handlePressUserLocation = () => {
     if (isUerLocationError) {
@@ -41,7 +41,6 @@ function MapHomeScreen() {
       longitude: userLocation.longitude,
       latitudeDelta: 0.0922,
       longitudeDelta: 0.0421,
-
     });
   };
 
