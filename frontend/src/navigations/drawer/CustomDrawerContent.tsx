@@ -17,6 +17,7 @@ import React from 'react';
 
 function CustomDrawerContent(props: DrawerContentComponentProps) {
   const {logoutMutation, getProfileQuery} = useAuth();
+  // @ts-ignore
   const {email, nickname, imageUri, kakaoImageUri} = getProfileQuery.data || {};
 
   const handleLogout = () => {

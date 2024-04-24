@@ -31,6 +31,7 @@ function MapHomeScreen() {
   const navigation = useNavigation<Navigation>();
   const mapRef = useRef<MapView | null>(null);
   const {userLocation, isUserLocationError} = useUserLocation();
+  // @ts-ignore
   const {selectLocation, setSelectLocation} = useState<LatLng>();
   usePermission('LOCATION');
 
