@@ -1,7 +1,7 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import {Pressable, StyleSheet, View} from 'react-native';
 //import useAuth from '@/hooks/queries/useAuth';
-import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, {Callout, LatLng, LongPressEvent, Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 import {colors} from '@/constants';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
@@ -26,11 +26,16 @@ function MapHomeScreen() {
   const navigation = useNavigation<Navigation>();
   const mapRef = useRef<MapView | null>(null);
   const {userLocation, isUserLocationError} = useUserLocation();
+  const {selectLocation, setSelectLocation} = useState<LatLng>();
   usePermission('LOCATION');
 
   //const handleLogout = () => {
   //  logoutMutation.mutate(null);
   //};
+
+  const handleLongPressMapView = ({nativeEvent} : LongPressEvent) => {
+    setSelectLocation{nativeEvent.coordinate}
+  }
 
   const handlePressUserLocation = () => {
     if (isUserLocationError) {
@@ -53,13 +58,19 @@ function MapHomeScreen() {
         showsUserLocation
         followsUserLocation
         showsMyLocationButton={false}
-        customMapStyle={mapStyle}>
+        customMapStyle={mapStyle}
+      onLongPress={handleLongPressMapView}>
         <Marker
           coordinate={{
             latitude: 37.5516032365118,
             longitude: 126.98989626020192,
           }}
         />
+        {selectLocation && (
+        <Callout>
+          <Marker coordinate={selectLocation} />
+        </Callout>
+        )}
       </MapView>
       <Pressable
         style={[styles.drawerButton, {top: inset.top || 20}]}
