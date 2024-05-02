@@ -4,7 +4,6 @@ import MapView, {
   Callout,
   LatLng,
   LongPressEvent,
-  Marker,
   PROVIDER_GOOGLE,
 } from 'react-native-maps';
 import {alerts, colors, mapNavigations} from '@/constants';
