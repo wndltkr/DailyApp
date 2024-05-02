@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="4.24">
+    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="5.02">
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/post.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/assets/user.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/inputField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/inputField.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/drawer/CustomDrawerContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/drawer/CustomDrawerContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/AddPostScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/AddPostScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/utils/validate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/validate.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +72,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\project\DailyApp\frontend\src\assets" />
       <recent name="C:\project\DailyApp\frontend\src\navigations\stack" />
       <recent name="C:\project\DailyApp\frontend\src\stack" />
     </key>
@@ -100,7 +105,7 @@
       <workItem from="1713921125483" duration="176000" />
       <workItem from="1713922053211" duration="19326000" />
       <workItem from="1714004727246" duration="3440000" />
-      <workItem from="1714611823252" duration="8467000" />
+      <workItem from="1714611823252" duration="15447000" />
     </task>
     <task id="LOCAL-00001" summary="4.16">
       <option name="closed" value="true" />
@@ -246,7 +251,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713949369440</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="5.02">
+      <option name="closed" value="true" />
+      <created>1714627684946</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1714627684946</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +272,7 @@
     <MESSAGE value="4.22" />
     <MESSAGE value="4.23" />
     <MESSAGE value="4.24" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.24" />
+    <MESSAGE value="5.02" />
+    <option name="LAST_COMMIT_MESSAGE" value="5.02" />
   </component>
 </project>
