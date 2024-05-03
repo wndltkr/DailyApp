@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import Slider from '@react-native-community/slider';
 import {colors} from '@/constants';
@@ -11,6 +11,10 @@ interface ScoreInputProps {
 function ScoreInput({score, onChangeScore}: ScoreInputProps) {
   return (
     <View style={styles.container}>
+      <View style={styles.labelContainer}>
+        <Text style={styles.labelText}>평점</Text>
+        <Text style={styles.labelText}>{score}점</Text>
+      </View>
       <Slider
         value={score}
         onValueChange={onChangeScore}
@@ -28,6 +32,13 @@ const styles = StyleSheet.create({
     padding: 15,
     borderWidth: 1,
     borderColor: colors.GRAY_200,
+  },
+  labelContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  labelText :{
+    color: colors.GRAY_700,
   },
 });
 

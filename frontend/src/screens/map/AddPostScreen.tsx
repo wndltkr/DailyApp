@@ -98,7 +98,7 @@ function AddPostScreen({route, navigation}: AddPostScreenProps) {
             markerColor={markerColor}
             onPressMarker={handleSelectMarker}
           />
-          <ScoreInput />
+          <ScoreInput score={score}/>
         </View>
       </ScrollView>
     </SafeAreaView>
