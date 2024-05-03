@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     borderColor: colors.RED_300,
   },
   error: {
-    color: colors.RES_500,
+    color: colors.RED_500,
     fontSize: 12,
     paddingTop: 5,
   },

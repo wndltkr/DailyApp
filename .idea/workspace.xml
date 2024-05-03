@@ -5,14 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="5.02">
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/post.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/assets/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/marker.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/AddPostHeaderRight.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/HeaderButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/MarkerSelector.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/ScoreInput.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetMarkers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMuatateCreatePost.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useGetAddress.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/types/marker.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/post.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CustomMarker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CustomMarker.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/inputField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/inputField.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/drawer/CustomDrawerContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/drawer/CustomDrawerContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/keys.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/message.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/AddPostScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/AddPostScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/utils/validate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/validate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +118,8 @@
       <workItem from="1713921125483" duration="176000" />
       <workItem from="1713922053211" duration="19326000" />
       <workItem from="1714004727246" duration="3440000" />
-      <workItem from="1714611823252" duration="15447000" />
+      <workItem from="1714611823252" duration="16253000" />
+      <workItem from="1714698007742" duration="14493000" />
     </task>
     <task id="LOCAL-00001" summary="4.16">
       <option name="closed" value="true" />
@@ -259,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714627684946</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="5.02">
+      <option name="closed" value="true" />
+      <created>1714639568931</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1714639568931</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
