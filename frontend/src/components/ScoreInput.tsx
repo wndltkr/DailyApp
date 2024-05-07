@@ -21,6 +21,9 @@ function ScoreInput({score, onChangeScore}: ScoreInputProps) {
         step={1}
         minimumValue={1}
         maximumValue={5}
+        minimumTrackTintColor={colors.PINK_700}
+        maximumTrackTintColor={colors.GRAY_300}
+        thumbTintColor={colors.GRAY_100}
       />
     </View>
   );
@@ -35,9 +38,9 @@ const styles = StyleSheet.create({
   },
   labelContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
-  labelText :{
+  labelText: {
     color: colors.GRAY_700,
   },
 });
