@@ -34,7 +34,7 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
           <View style={styles.userImageContainer}>
             {imageUri === null && kakaoImageUri === null && (
               <Image
-                source={require("@/assets/user.png")}
+                source={require('@/assets/user.png')}
                 style={styles.userImage}
               />
             )}

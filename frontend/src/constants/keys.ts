@@ -3,7 +3,9 @@ const queryKeys = {
   GET_ACCESS_TOKEN: 'getAccessToken',
   GET_PROFILE: 'getProfile',
   MARKER: 'marker',
-  GET_MARKER: 'getMerkers',
+  GET_MARKER: 'getMarkers',
+  POST: 'post',
+  GET_POST: 'getPost',
 } as const;
 
 const storageKeys = {
