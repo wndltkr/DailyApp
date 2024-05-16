@@ -1,9 +1,8 @@
-import {UseMutationCustomOptions} from '@/types/common';
+import {UseMutationCustomOptions, Marker} from '@/types';
 import {useMutation} from '@tanstack/react-query';
 import {createPost} from '@/api';
 import queryClient from '@/api/queryClient';
 import {queryKeys} from '@/constants';
-import {Marker} from '@/types/domain';
 
 function useMuatateCreatePost(mutationOptions?: UseMutationCustomOptions) {
   return useMutation({

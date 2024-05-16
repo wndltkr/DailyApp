@@ -2,7 +2,7 @@ import React from 'react';
 import {Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
 import CustomMarker from '@/components/CustomMarker';
 import {colors} from '@/constants';
-import {MarkerColor} from '@/types/domain';
+import {MarkerColor} from '@/types';
 
 interface MarkerSelectorProps {
   markerColor: MarkerColor;

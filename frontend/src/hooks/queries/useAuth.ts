@@ -11,9 +11,13 @@ import {
   postLogin,
   postSignup,
 } from '@/api/auth';
-import {ResponseError, UseMutationCustomOptions} from '@/types/common';
-import {removeEncryptStorage, setEncryptStorage} from '@/utils';
-import {removeHeader, setHeader} from '@/utils/header';
+import {ResponseError, UseMutationCustomOptions} from '@/types';
+import {
+  removeEncryptStorage,
+  setEncryptStorage,
+  removeHeader,
+  setHeader,
+} from '@/utils';
 import {useEffect} from 'react';
 import queryClient from '@/api/queryClient';
 import {numbers, queryKeys, storageKeys} from '@/constants';

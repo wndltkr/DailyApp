@@ -2,7 +2,7 @@ import ImagePicker from 'react-native-image-crop-picker';
 import {getFormDataImages} from '@/utils';
 import useMutateImages from '@/hooks/queries/useMutateImages';
 import {useState} from 'react';
-import {ImageUri} from '@/types/domain';
+import {ImageUri} from '@/types';
 import {Alert} from 'react-native';
 
 interface useImagePickerProps {

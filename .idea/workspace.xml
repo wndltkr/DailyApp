@@ -4,27 +4,36 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="5.03">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/api/image.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/MarkerModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/PreviewImageList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetPost.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateImages.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useImagePicker.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/utils/image.ts" afterDir="false" />
+    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="5.13">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/FeedItem.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/FeedList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetInfinitePosts.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/android/app/proguard-rules.pro" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/android/app/proguard-rules.pro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/marker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/marker.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/post.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/CustomMarker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/CustomMarker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MarkerSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MarkerSelector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/PreviewImageList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/PreviewImageList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/constants/keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/keys.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/drawer/CustomDrawerContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/drawer/CustomDrawerContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useAuth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetMarkers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetMarkers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetPost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetPost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useMuatateCreatePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMuatateCreatePost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateImages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateImages.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useGetAddress.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useGetAddress.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useImagePicker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useImagePicker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/SignupScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/SignupScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/feed/FeedHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/feed/FeedHomeScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/AddPostScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/AddPostScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/utils/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/style/map-Style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style/mapStyle.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/types/common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/types/common.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/types/domain.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/types/domain.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/types/marker.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/types/marker.d.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +46,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -84,6 +93,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\project\DailyApp\frontend\src\types" />
+      <recent name="C:\project\DailyApp\frontend" />
       <recent name="C:\project\DailyApp\frontend\src\assets" />
       <recent name="C:\project\DailyApp\frontend\src\navigations\stack" />
       <recent name="C:\project\DailyApp\frontend\src\stack" />
@@ -124,7 +135,9 @@
       <workItem from="1715128565400" duration="21309000" />
       <workItem from="1715218510142" duration="4020000" />
       <workItem from="1715234727947" duration="1543000" />
-      <workItem from="1715559155136" duration="6621000" />
+      <workItem from="1715559155136" duration="17766000" />
+      <workItem from="1715646330485" duration="3798000" />
+      <workItem from="1715819736167" duration="21321000" />
     </task>
     <task id="LOCAL-00001" summary="4.16">
       <option name="closed" value="true" />
@@ -310,7 +323,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715072531986</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="5.13">
+      <option name="closed" value="true" />
+      <created>1715566319059</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1715566319060</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,6 +346,7 @@
     <MESSAGE value="4.24" />
     <MESSAGE value="5.02" />
     <MESSAGE value="5.03" />
-    <option name="LAST_COMMIT_MESSAGE" value="5.03" />
+    <MESSAGE value="5.13" />
+    <option name="LAST_COMMIT_MESSAGE" value="5.13" />
   </component>
 </project>

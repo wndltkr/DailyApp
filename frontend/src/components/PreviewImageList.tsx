@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import React from 'react';
-import {ImageUri} from '@/types/domain';
+import {ImageUri} from '@/types';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {colors} from '@/constants';
 

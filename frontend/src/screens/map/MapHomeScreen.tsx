@@ -17,7 +17,7 @@ import useUserLocation from '@/hooks/useUserLocation';
 import usePermission from '@/hooks/usePermission';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import mapStyle from '@/style/map-Style';
+import mapStyle from '@/style/mapStyle';
 import CustomMarker from '@/components/CustomMarker';
 import useGetMarkers from '@/hooks/queries/useGetMarkers';
 import MarkerModal from '@/components/MarkerModal';
@@ -125,7 +125,7 @@ function MapHomeScreen() {
       <MarkerModal
         markerId={markerId}
         isVisible={markerModal.isVisible}
-        hide={markerModal.hide()}
+        hide={markerModal.hide}
       />
     </>
   );

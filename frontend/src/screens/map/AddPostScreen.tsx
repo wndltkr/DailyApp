@@ -2,8 +2,6 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {MapStackParamList} from '@/navigations/stack/MapStatckNavigator';
 import React, {useEffect, useRef, useState} from 'react';
 import {
-  Image,
-  Platform,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -18,7 +16,7 @@ import useForm from '@/hooks/useForm';
 import {getDateWithSeparator, validateAddPost} from '@/utils';
 import AddPostHeaderRight from '@/components/AddPostHeaderRight';
 import useMuatateCreatePost from '@/hooks/queries/useMuatateCreatePost';
-import {MarkerColor} from '@/types/domain';
+import {MarkerColor} from '@/types';
 import useGetAddress from '@/hooks/useGetAddress';
 import MarkerSelector from '@/components/MarkerSelector';
 import ScoreInput from '@/components/ScoreInput';

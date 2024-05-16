@@ -1,6 +1,6 @@
 import axiosInstance from './axios';
-import {Category, Profile} from '../types/domain';
-import {getEncryptStorage} from '../utils';
+import type {Category, Profile} from '@/types';
+import {getEncryptStorage} from '@/utils';
 
 type RequestUser = {
   email: string;

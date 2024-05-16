@@ -1,4 +1,4 @@
-import {UseMutationCustomOptions} from '@/types/common';
+import {UseMutationCustomOptions} from '@/types';
 import {useMutation} from '@tanstack/react-query';
 import {uploadImages} from '@/api';
 
