@@ -20,7 +20,7 @@ function AuthStackNavigator() {
         },
         headerStyle: {
           backgroundColor: 'white',
-          shadowColor: 'grat',
+          shadowColor: 'gray',
         },
         headerTitleStyle: {
           fontSize: 15,

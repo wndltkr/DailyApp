@@ -9,7 +9,7 @@ import {
 import {AuthStackParamList} from '@/navigations/stack/AuthStackNavigator';
 import {StackScreenProps} from '@react-navigation/stack';
 import {authNavigations} from '@/constants';
-import CustomButton from '@/components/CustomButton';
+import CustomButton from '@/components/common/CustomButton';
 import Image = Animated.Image;
 
 type AuthHomeScreenProps = StackScreenProps<
