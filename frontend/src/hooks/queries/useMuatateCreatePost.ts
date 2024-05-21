@@ -9,9 +9,9 @@ function useMuatateCreatePost(mutationOptions?: UseMutationCustomOptions) {
     mutationFn: createPost,
     ...mutationOptions,
     onSuccess: newPost => {
-      // queryClient.invalidateQueries({
-      //   queryKey: [queryKeys.MARKER, queryKeys.GET_MARKER],
-      // });
+      queryClient.invalidateQueries({
+        queryKey: [queryKeys.POST, queryKeys.GET_POSTS],
+      });
 
       queryClient.setQueryData<Marker[]>(
         [queryKeys.MARKER, queryKeys.GET_MARKER],
