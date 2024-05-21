@@ -1,7 +1,8 @@
 import {
   Dimensions,
   Image,
-  Platform, Pressable,
+  Platform,
+  Pressable,
   StyleSheet,
   Text,
   View,
@@ -10,9 +11,9 @@ import React from 'react';
 import {ResponsePost} from '@/api';
 import {getDateWithSeparator} from '@/utils';
 import {colors, feedNavigations} from '@/constants';
-import {useNavigation} from "@react-navigation/native";
-import {StackNavigationProp} from "@react-navigation/stack";
-import {FeedStackParamList} from "@/navigations/stack/FeedStackNavigator";
+import {useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
 
 interface FeedItemProps {
   post: ResponsePost;
@@ -21,10 +22,10 @@ interface FeedItemProps {
 type Navigation = StackNavigationProp<FeedStackParamList>;
 
 function FeedItem({post}: FeedItemProps) {
-  const navigation = useNavigation<Navigation>()
-  const hadlePressFeed = () =>{
-    navigation.navigate(feedNavigations.FEED_DETAIL, {id: post.id})
-  }
+  const navigation = useNavigation<Navigation>();
+  const hadlePressFeed = () => {
+    navigation.navigate(feedNavigations.FEED_DETAIL, {id: post.id});
+  };
 
   return (
     <Pressable style={styles.container} onPress={hadlePressFeed}>

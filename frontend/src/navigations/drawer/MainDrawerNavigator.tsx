@@ -15,6 +15,7 @@ import CustomDrawerContent from '@/navigations/drawer/CustomDrawerContent';
 import FeedStackNavigator, {
   FeedStackParamList,
 } from '@/navigations/stack/FeedStackNavigator';
+import React from 'react';
 
 export type MainDrawerParamList = {
   [mainNavigations.HOME]: NavigatorScreenParams<MapStackParamList>;
