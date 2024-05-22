@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   Dimensions,
   Image,
@@ -12,7 +12,13 @@ import {
 } from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
 import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
-import {colorHex, colors, feedNavigations} from '@/constants';
+import {
+  colorHex,
+  colors,
+  feedNavigations,
+  mainNavigations,
+  mapNavigations,
+} from '@/constants';
 import useGetPost from '@/hooks/queries/useGetPost';
 import Octicons from 'react-native-vector-icons/Octicons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -20,20 +26,42 @@ import {getDateLocaleFormat} from '@/utils';
 import PreviewImageList from '@/components/common/PreviewImageList';
 import CustomButton from '@/components/common/CustomButton';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {CompositeScreenProps} from '@react-navigation/native';
+import {DrawerScreenProps} from '@react-navigation/drawer';
+import {MainDrawerParamList} from '@/navigations/drawer/MainDrawerNavigator';
+import useLocationStore from '@/store/useLocationStore';
+import useModal from '@/hooks/useModal';
+import FeedDetailOption from '@/components/feed/FeedDetailOption';
+import useDetailPostStore from '@/store/useDetailPostStore';
 
-type FeedDetailScreenProps = StackScreenProps<
-  FeedStackParamList,
-  typeof feedNavigations.FEED_DETAIL
+type FeedDetailScreenProps = CompositeScreenProps<
+  StackScreenProps<FeedStackParamList, typeof feedNavigations.FEED_DETAIL>,
+  DrawerScreenProps<MainDrawerParamList>
 >;
 
 function FeedDetailScreen({route, navigation}: FeedDetailScreenProps) {
   const {id} = route.params;
   const {data: post, isPending, isError} = useGetPost(id);
   const insets = useSafeAreaInsets();
+  const {setMoveLocation} = useLocationStore();
+  const detailOption = useModal();
+  const {setDetailPost} = useDetailPostStore();
+
+  useEffect(() => {
+    post && setDetailPost(post);
+  }, [post]);
 
   if (isPending || isError) {
     return <></>;
   }
+
+  const handlePressLocation = () => {
+    const {latitude, longitude} = post;
+    setMoveLocation({latitude, longitude});
+    navigation.navigate(mainNavigations.HOME, {
+      screen: mapNavigations.MAP_HOME,
+    });
+  };
 
   return (
     <>
@@ -52,7 +80,12 @@ function FeedDetailScreen({route, navigation}: FeedDetailScreenProps) {
               color={colors.WHITE}
               onPress={() => navigation.goBack()}
             />
-            <Ionicons name="ellipsis-vertical" size={30} color={colors.WHITE} />
+            <Ionicons
+              name="ellipsis-vertical"
+              size={30}
+              color={colors.WHITE}
+              onPress={detailOption.show}
+            />
           </View>
         </SafeAreaView>
         <View style={styles.imageContainer}>
@@ -137,10 +170,14 @@ function FeedDetailScreen({route, navigation}: FeedDetailScreenProps) {
             label="위치"
             size="medium"
             variant="filled"
-            onPress={() => {}}
+            onPress={handlePressLocation}
           />
         </View>
       </View>
+      <FeedDetailOption
+        isVisible={detailOption.isVisible}
+        hideOption={detailOption.hide}
+      />
     </>
   );
 }

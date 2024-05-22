@@ -6,7 +6,7 @@ import {UseQueryCustomOptions, Marker} from '@/types';
 function useGetMarkers(queryOptions?: UseQueryCustomOptions<Marker[]>) {
   return useQuery({
     queryFn: getMerkers,
-    queryKey: [queryKeys.MARKER, queryKeys.GET_MARKER],
+    queryKey: [queryKeys.MARKER, queryKeys.GET_MARKERS],
     ...queryOptions,
   });
 }

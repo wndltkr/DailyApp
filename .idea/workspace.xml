@@ -5,18 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="5.21">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/CompoundOption.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/feed/FeedDetailOption.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/post/postForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateDeletePost.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateUpdatePost.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useMoveMapView.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/feed/EditPostScreen.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/store/useDetailPostStore.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/store/useLocationStore.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/CustomMarker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/CustomMarker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/PreviewImageList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/PreviewImageList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/map/MarkerModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/map/MarkerModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/constants/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/colors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useMuatateCreatePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMuatateCreatePost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/post.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/keys.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/message.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/navigations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/navigations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/numbers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/numbers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetMarkers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetMarkers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useMuatateCreatePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateCreatePost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/stack/FeedStackNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/FeedStackNavigator.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/feed/FeedDetailScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/feed/FeedDetailScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/AddPostScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/AddPostScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/utils/date.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/date.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +38,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -125,7 +134,8 @@
       <workItem from="1715906531879" duration="9653000" />
       <workItem from="1716254308733" duration="6963000" />
       <workItem from="1716265057359" duration="2725000" />
-      <workItem from="1716273626204" duration="7934000" />
+      <workItem from="1716273626204" duration="7985000" />
+      <workItem from="1716336696686" duration="25969000" />
     </task>
     <task id="LOCAL-00001" summary="4.16">
       <option name="closed" value="true" />
@@ -343,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716256530867</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="5.21">
+      <option name="closed" value="true" />
+      <created>1716282322696</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1716282322696</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

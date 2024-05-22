@@ -4,7 +4,7 @@ import {createPost} from '@/api';
 import queryClient from '@/api/queryClient';
 import {queryKeys} from '@/constants';
 
-function useMuatateCreatePost(mutationOptions?: UseMutationCustomOptions) {
+function useMutateCreatePost(mutationOptions?: UseMutationCustomOptions) {
   return useMutation({
     mutationFn: createPost,
     ...mutationOptions,
@@ -14,7 +14,7 @@ function useMuatateCreatePost(mutationOptions?: UseMutationCustomOptions) {
       });
 
       queryClient.setQueryData<Marker[]>(
-        [queryKeys.MARKER, queryKeys.GET_MARKER],
+        [queryKeys.MARKER, queryKeys.GET_MARKERS],
         existingMarkers => {
           const newMarker = {
             id: newPost.id,
@@ -34,4 +34,4 @@ function useMuatateCreatePost(mutationOptions?: UseMutationCustomOptions) {
   });
 }
 
-export default useMuatateCreatePost;
+export default useMutateCreatePost;

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {Alert, Pressable, StyleSheet, View} from 'react-native';
 import MapView, {
   Callout,
@@ -6,7 +6,7 @@ import MapView, {
   LongPressEvent,
   PROVIDER_GOOGLE,
 } from 'react-native-maps';
-import {alerts, colors, mapNavigations} from '@/constants';
+import {alerts, colors, mapNavigations, numbers} from '@/constants';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
@@ -22,6 +22,7 @@ import CustomMarker from '@/components/common/CustomMarker';
 import useGetMarkers from '@/hooks/queries/useGetMarkers';
 import MarkerModal from '@/components/map/MarkerModal';
 import useModal from '@/hooks/useModal';
+import useMoveMapView from '@/hooks/useMoveMapView';
 
 type Navigation = CompositeNavigationProp<
   StackNavigationProp<MapStackParamList>,
@@ -31,21 +32,13 @@ type Navigation = CompositeNavigationProp<
 function MapHomeScreen() {
   const inset = useSafeAreaInsets();
   const navigation = useNavigation<Navigation>();
-  const mapRef = useRef<MapView | null>(null);
   const {userLocation, isUserLocationError} = useUserLocation();
   const {data: markers = []} = useGetMarkers();
   const markerModal = useModal();
   const [markerId, setMarkerId] = useState<number | null>(null);
   const [selectLocation, setSelectLocation] = useState<LatLng>();
+  const {mapRef, moveMapView, handleChangeDelta} = useMoveMapView();
   usePermission('LOCATION');
-
-  const moveMapView = (coordinate: LatLng) => {
-    mapRef.current?.animateToRegion({
-      ...coordinate,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421,
-    });
-  };
 
   const handlePressMarker = (id: number, coordinate: LatLng) => {
     moveMapView(coordinate);
@@ -88,10 +81,10 @@ function MapHomeScreen() {
         showsMyLocationButton={false}
         customMapStyle={mapStyle}
         onLongPress={handleLongPressMapView}
+        onRegionChangeComplete={handleChangeDelta}
         region={{
           ...userLocation,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
+          ...numbers.INITIAL_DELTA,
         }}>
         {markers.map(({id, color, score, ...coordinate}) => {
           <CustomMarker
