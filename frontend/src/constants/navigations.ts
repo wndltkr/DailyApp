@@ -19,6 +19,18 @@ const feedNavigations = {
   FEED_HOME: 'FeedHome',
   FEED_DETAIL: 'FeedDetail',
   EDIT_POST: 'EditPost',
+  IMAGE_ZOOM: 'ImageZoom',
 } as const;
 
-export {authNavigations, mapNavigations, mainNavigations, feedNavigations};
+const feedTabNavigations = {
+  FEED_HOME: 'FeedTabHome',
+  FEED_FAVORITE: 'FeedFavorite',
+} as const;
+
+export {
+  authNavigations,
+  mapNavigations,
+  mainNavigations,
+  feedNavigations,
+  feedTabNavigations,
+};
