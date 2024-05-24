@@ -1,8 +1,10 @@
-import ImageCarousel from '@/components/common/ImageCarouselProps';
-import useDetailPostStore from '@/store/useDetailPostStore';
+import React from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
-import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
+
+import ImageCarousel from '@/components/common/ImageCarousel';
 import {feedNavigations} from '@/constants';
+import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
+import useDetailStore from '@/store/useDetailPostStore';
 
 type ImageZoomScreenProps = StackScreenProps<
   FeedStackParamList,
@@ -11,10 +13,11 @@ type ImageZoomScreenProps = StackScreenProps<
 
 function ImageZoomScreen({route}: ImageZoomScreenProps) {
   const {index} = route.params;
-  const {detailPost} = useDetailPostStore();
+  const {detailPost} = useDetailStore();
+
   return (
     <ImageCarousel images={detailPost?.images ?? []} pressedIndex={index} />
   );
 }
 
-export default ImageCarousel;
+export default ImageZoomScreen;

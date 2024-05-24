@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import {LatLng, MyMapMarkerProps, Marker} from 'react-native-maps';
+import {LatLng, Marker, MyMapMarkerProps} from 'react-native-maps';
+
 import {colorHex, colors} from '@/constants';
 import {MarkerColor} from '@/types';
 
@@ -27,6 +28,7 @@ function CustomMarker({
       </View>
     </View>
   );
+
   return coordinate ? (
     <Marker coordinate={coordinate} {...props}>
       {markerView}
@@ -68,8 +70,8 @@ const styles = StyleSheet.create({
   },
   mouth: {
     transform: [{rotate: '45deg'}],
-    borderTopColor: 'rgba(255, 255, 255 / 0.01)',
-    borderBottomColor: 'rgba(255, 255, 255 / 0.01)',
+    borderTopColor: 'rgba(255,255,255 / 0.01)',
+    borderBottomColor: 'rgba(255,255,255 / 0.01)',
     width: 12,
     height: 12,
     borderWidth: 1,
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
     transform: [{rotate: '225deg'}],
     marginLeft: 5,
     marginTop: 5,
-    borderRightColor: 'rgba(255, 255, 255 / 0.01)',
+    borderRightColor: 'rgba(255,255,255 / 0.01)',
     borderLeftColor: colors.BLACK,
   },
   soso: {
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
   bad: {
     marginLeft: 12,
     marginTop: 12,
-    borderRightColor: 'rgba(255, 255, 255 / 0.01)',
+    borderRightColor: 'rgba(255,255,255 / 0.01)',
     borderLeftColor: colors.BLACK,
   },
 });

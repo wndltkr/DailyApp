@@ -1,3 +1,4 @@
+import {PropsWithChildren, ReactNode, createContext, useContext} from 'react';
 import {
   GestureResponderEvent,
   Modal,
@@ -9,12 +10,6 @@ import {
   Text,
   View,
 } from 'react-native';
-import React, {
-  createContext,
-  PropsWithChildren,
-  ReactNode,
-  useContext,
-} from 'react';
 import {colors} from '@/constants';
 
 interface OptionContextValue {
@@ -42,6 +37,7 @@ function OptionMain({
       hideOption();
     }
   };
+
   return (
     <Modal
       visible={isVisible}
@@ -58,11 +54,14 @@ function OptionMain({
 
 function Background({children}: PropsWithChildren) {
   const optionContext = useContext(OptionContext);
-  <SafeAreaView
-    style={styles.optionBackGround}
-    onTouchEnd={optionContext?.onClickOutSide}>
-    {children}
-  </SafeAreaView>;
+
+  return (
+    <SafeAreaView
+      style={styles.optionBackground}
+      onTouchEnd={optionContext?.onClickOutSide}>
+      {children}
+    </SafeAreaView>
+  );
 }
 
 function Container({children}: PropsWithChildren) {
@@ -75,16 +74,18 @@ interface ButtonProps extends PressableProps {
 }
 
 function Button({children, isDanger = false, ...props}: ButtonProps) {
-  <Pressable
-    style={({pressed}) => [
-      pressed && styles.optionButtonPressed,
-      styles.optionButton,
-    ]}
-    {...props}>
-    <Text style={(styles.optionText, isDanger && styles.dangerText)}>
-      {children}
-    </Text>
-  </Pressable>;
+  return (
+    <Pressable
+      style={({pressed}) => [
+        pressed && styles.optionButtonPressed,
+        styles.optionButton,
+      ]}
+      {...props}>
+      <Text style={[styles.optionText, isDanger && styles.dangerText]}>
+        {children}
+      </Text>
+    </Pressable>
+  );
 }
 
 function Title({children}: PropsWithChildren) {
@@ -101,22 +102,22 @@ function Divider() {
 
 export const CompoundOption = Object.assign(OptionMain, {
   Container,
+  Background,
   Button,
   Title,
   Divider,
-  Background,
 });
 
 const styles = StyleSheet.create({
-  optionBackGround: {
+  optionBackground: {
     flex: 1,
     justifyContent: 'flex-end',
-    backgroundColor: 'rgba(0 0 0 / 0.5',
+    backgroundColor: 'rgba(0 0 0 / 0.5)',
   },
   optionContainer: {
     borderRadius: 15,
-    marginBottom: 10,
     marginHorizontal: 10,
+    marginBottom: 10,
     backgroundColor: colors.GRAY_100,
     overflow: 'hidden',
   },

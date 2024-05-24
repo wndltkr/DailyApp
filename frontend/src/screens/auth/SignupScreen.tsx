@@ -1,15 +1,16 @@
 import React, {useRef} from 'react';
 import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
-import {validateSignup} from '@/utils';
-import InputField from '@/components/common/inputField';
+
+import InputField from '@/components/common/InputField';
 import CustomButton from '@/components/common/CustomButton';
-import useAuth from '@/hooks/queries/useAuth';
 import useForm from '@/hooks/useForm';
+import useAuth from '@/hooks/queries/useAuth';
+import {validateSignup} from '@/utils';
 
 function SignupScreen() {
+  const {signupMutation, loginMutation} = useAuth();
   const passwordRef = useRef<TextInput | null>(null);
   const passwordConfirmRef = useRef<TextInput | null>(null);
-  const {signupMutation, loginMutation} = useAuth();
   const signup = useForm({
     initialValue: {email: '', password: '', passwordConfirm: ''},
     validate: validateSignup,
@@ -57,6 +58,7 @@ function SignupScreen() {
           error={signup.errors.passwordConfirm}
           touched={signup.touched.passwordConfirm}
           secureTextEntry
+          returnKeyType="join"
           onSubmitEditing={handleSubmit}
           {...signup.getTextInputProps('passwordConfirm')}
         />
@@ -68,7 +70,7 @@ function SignupScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flsx: 1,
+    flex: 1,
     margin: 30,
   },
   inputContainer: {

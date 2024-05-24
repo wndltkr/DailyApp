@@ -1,16 +1,10 @@
 import React from 'react';
-import {
-  Animated,
-  Dimensions,
-  SafeAreaView,
-  StyleSheet,
-  View,
-} from 'react-native';
-import {AuthStackParamList} from '@/navigations/stack/AuthStackNavigator';
 import {StackScreenProps} from '@react-navigation/stack';
-import {authNavigations} from '@/constants';
+import {Dimensions, Image, SafeAreaView, StyleSheet, View} from 'react-native';
+
+import {AuthStackParamList} from '@/navigations/stack/AuthStackNavigator';
 import CustomButton from '@/components/common/CustomButton';
-import Image = Animated.Image;
+import {authNavigations} from '@/constants';
 
 type AuthHomeScreenProps = StackScreenProps<
   AuthStackParamList,
@@ -24,16 +18,16 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
         <Image
           resizeMode="contain"
           style={styles.image}
-          source={require('@/assets/image.png')}
+          source={require('@/assets/matzip.png')}
         />
       </View>
       <View style={styles.buttonContainer}>
         <CustomButton
-          label="로그인"
+          label="로그인하기"
           onPress={() => navigation.navigate(authNavigations.LOGIN)}
         />
         <CustomButton
-          label="회원가입"
+          label="회원가입하기"
           variant="outlined"
           onPress={() => navigation.navigate(authNavigations.SIGNUP)}
         />
@@ -45,8 +39,9 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 30,
     alignItems: 'center',
+    marginHorizontal: 30,
+    marginVertical: 30,
   },
   imageContainer: {
     flex: 1.5,
@@ -58,6 +53,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
+    alignItems: 'center',
     gap: 10,
   },
 });

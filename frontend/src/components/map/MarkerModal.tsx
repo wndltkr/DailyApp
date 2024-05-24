@@ -1,4 +1,4 @@
-import useGetPost from '@/hooks/queries/useGetPost';
+import React from 'react';
 import {
   Dimensions,
   Image,
@@ -10,22 +10,23 @@ import {
   Text,
   View,
 } from 'react-native';
+import Octicons from 'react-native-vector-icons/Octicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
+import {StackNavigationProp} from '@react-navigation/stack';
+import {DrawerNavigationProp} from '@react-navigation/drawer';
+
+import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
+import {MainDrawerParamList} from '@/navigations/drawer/MainDrawerNavigator';
+import useGetPost from '@/hooks/queries/useGetPost';
 import {
   colors,
   feedNavigations,
   feedTabNavigations,
   mainNavigations,
 } from '@/constants';
-import CustomMarker from '@/components/common/CustomMarker';
-import Octicons from 'react-native-vector-icons/Octicons';
 import {getDateWithSeparator} from '@/utils';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import React from 'react';
-import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
-import {DrawerNavigationProp} from '@react-navigation/drawer';
-import {MainDrawerParamList} from '@/navigations/drawer/MainDrawerNavigator';
+import CustomMarker from '../common/CustomMarker';
 import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import {FeedTabParamList} from '@/navigations/tab/FeedTabNavigator';
 
@@ -65,7 +66,7 @@ function MarkerModal({markerId, isVisible, hide}: MarkerModalProps) {
 
   return (
     <Modal visible={isVisible} transparent={true} animationType={'slide'}>
-      <SafeAreaView style={styles.optionBackground} onTouchEnd={hide}>
+      <SafeAreaView style={[styles.optionBackground]} onTouchEnd={hide}>
         <Pressable style={styles.cardContainer} onPress={handlePressModal}>
           <View style={styles.cardInner}>
             <View style={styles.cardAlign}>
@@ -76,9 +77,9 @@ function MarkerModal({markerId, isVisible, hide}: MarkerModalProps) {
                     source={{
                       uri: `${
                         Platform.OS === 'ios'
-                          ? 'http://localhost:3030'
-                          : 'http://10.0.2.2:3030'
-                      }${post?.images[0]?.uri}`,
+                          ? 'http://localhost:3030/'
+                          : 'http://10.0.2.2:3030/'
+                      }${post.images[0]?.uri}`,
                     }}
                     resizeMode="cover"
                   />
@@ -92,11 +93,11 @@ function MarkerModal({markerId, isVisible, hide}: MarkerModalProps) {
               )}
               <View style={styles.infoContainer}>
                 <View style={styles.addressContainer}>
-                  <Octicons name="location" size={16} color={colors.GRAY_500} />
+                  <Octicons name="location" size={10} color={colors.GRAY_500} />
                   <Text
-                    numberOfLines={1}
+                    style={styles.addressText}
                     ellipsizeMode="tail"
-                    style={styles.addressText}>
+                    numberOfLines={1}>
                     {post.address}
                   </Text>
                 </View>
@@ -106,11 +107,14 @@ function MarkerModal({markerId, isVisible, hide}: MarkerModalProps) {
                 </Text>
               </View>
             </View>
-            <MaterialIcons
-              name="arrow-forword-ios"
-              size={20}
-              color={colors.BLACK}
-            />
+
+            <View style={styles.nextButton}>
+              <MaterialIcons
+                name="arrow-forward-ios"
+                size={20}
+                color={colors.BLACK}
+              />
+            </View>
           </View>
         </Pressable>
       </SafeAreaView>
@@ -122,7 +126,6 @@ const styles = StyleSheet.create({
   optionBackground: {
     flex: 1,
     justifyContent: 'flex-end',
-    backgroundColor: 'rgba(0,0,0 /0.5)',
   },
   cardContainer: {
     backgroundColor: colors.WHITE,
@@ -142,19 +145,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-  cardAlign: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   imageContainer: {
     width: 70,
     height: 70,
-    borderRadius: 35,
-  },
-  image: {
-    width: '100%',
-    height: '100%',
     borderRadius: 35,
   },
   emptyImageContainer: {
@@ -163,6 +156,16 @@ const styles = StyleSheet.create({
     borderColor: colors.GRAY_200,
     borderRadius: 35,
     borderWidth: 1,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 35,
+  },
+  cardAlign: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   infoContainer: {
     width: Dimensions.get('screen').width / 2,
@@ -187,6 +190,13 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: 'bold',
     color: colors.PINK_700,
+  },
+  nextButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 40,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
   },
 });
 

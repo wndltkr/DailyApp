@@ -1,17 +1,19 @@
-import {StackScreenProps} from '@react-navigation/stack';
 import React from 'react';
-import {feedNavigations} from '@/constants';
-import PostForm from '@/components/post/postForm';
+import {StackScreenProps} from '@react-navigation/stack';
+
 import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
+import PostForm from '@/components/post/PostForm';
+import {feedNavigations} from '@/constants';
 
 type EditPostScreenProps = StackScreenProps<
   FeedStackParamList,
   typeof feedNavigations.EDIT_POST
 >;
 
-function EditPostScreenProps({route}: EditPostScreenProps) {
+function EditPostScreen({route}: EditPostScreenProps) {
   const {location} = route.params;
-  return <PostForm location={location} isEdit />;
+
+  return <PostForm isEdit location={location} />;
 }
 
-export default EditPostScreenProps;
+export default EditPostScreen;

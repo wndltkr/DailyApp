@@ -1,12 +1,13 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import {LatLng} from 'react-native-maps';
+
 import {colors, feedNavigations} from '@/constants';
 import FeedHomeScreen from '@/screens/feed/FeedHomeScreen';
-import FeedHomeHeaderLeft from '@/components/feed/FeedHomeHeaderLeft';
 import FeedDetailScreen from '@/screens/feed/FeedDetailScreen';
-import {LatLng} from 'react-native-maps';
 import EditPostScreen from '@/screens/feed/EditPostScreen';
 import ImageZoomScreen from '@/screens/feed/ImageZoomScreen';
+import FeedHomeHeaderLeft from '@/components/feed/FeedHomeHeaderLeft';
 
 export type FeedStackParamList = {
   [feedNavigations.FEED_HOME]: undefined;
@@ -14,8 +15,10 @@ export type FeedStackParamList = {
   [feedNavigations.EDIT_POST]: {location: LatLng};
   [feedNavigations.IMAGE_ZOOM]: {index: number};
 };
+
+const Stack = createStackNavigator<FeedStackParamList>();
+
 function FeedStackNavigator() {
-  const Stack = createStackNavigator<FeedStackParamList>();
   return (
     <Stack.Navigator
       screenOptions={{
@@ -23,8 +26,8 @@ function FeedStackNavigator() {
           backgroundColor: 'white',
         },
         headerStyle: {
-          backgroundColor: 'white',
           shadowColor: 'gray',
+          backgroundColor: 'white',
         },
         headerTitleStyle: {
           fontSize: 15,
@@ -43,8 +46,8 @@ function FeedStackNavigator() {
         name={feedNavigations.FEED_DETAIL}
         component={FeedDetailScreen}
         options={{
-          headerTitle: '',
           headerShown: false,
+          headerTitle: ' ',
           cardStyle: {
             backgroundColor: colors.GRAY_100,
           },
@@ -61,7 +64,7 @@ function FeedStackNavigator() {
         name={feedNavigations.IMAGE_ZOOM}
         component={ImageZoomScreen}
         options={{
-          headerTitle: '',
+          headerTitle: ' ',
           headerShown: false,
         }}
       />

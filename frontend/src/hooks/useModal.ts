@@ -11,7 +11,7 @@ function useModal() {
     setIsVisible(false);
   };
 
-  return {isVisible, hide, show};
+  return {isVisible, show, hide};
 }
 
 export default useModal;

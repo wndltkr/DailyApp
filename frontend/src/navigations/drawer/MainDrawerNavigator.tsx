@@ -1,21 +1,16 @@
+import {Dimensions} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import {NavigatorScreenParams, RouteProp} from '@react-navigation/native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
+import CustomDrawerContent from './CustomDrawerContent';
 import CalendarHomeScreen from '@/screens/calendar/CalendarHomeScreen';
-import MapStatckNavigator, {
+import FeedTabNavigator, {FeedTabParamList} from '../tab/FeedTabNavigator';
+import {colors, mainNavigations} from '@/constants';
+import FeedHomeHeaderLeft from '@/components/feed/FeedHomeHeaderLeft';
+import MapStackNavigator, {
   MapStackParamList,
 } from '@/navigations/stack/MapStatckNavigator';
-import {colors, mainNavigations} from '@/constants';
-import {
-  NavigatorScreenParams,
-  ParamListBase,
-  RouteProp,
-} from '@react-navigation/native';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {Dimensions} from 'react-native';
-import CustomDrawerContent from '@/navigations/drawer/CustomDrawerContent';
-import React from 'react';
-import FeedTabNavigator, {
-  FeedTabParamList,
-} from '@/navigations/tab/FeedTabNavigator';
 
 export type MainDrawerParamList = {
   [mainNavigations.HOME]: NavigatorScreenParams<MapStackParamList>;
@@ -23,7 +18,9 @@ export type MainDrawerParamList = {
   [mainNavigations.CALENDAR]: undefined;
 };
 
-function DrawerIcons(route: RouteProp<ParamListBase>, focused: boolean) {
+const Drawer = createDrawerNavigator<MainDrawerParamList>();
+
+function DrawerIcons(route: RouteProp<MainDrawerParamList>, focused: boolean) {
   let iconName = '';
 
   switch (route.name) {
@@ -44,14 +41,13 @@ function DrawerIcons(route: RouteProp<ParamListBase>, focused: boolean) {
   return (
     <MaterialIcons
       name={iconName}
-      size={18}
       color={focused ? colors.BLACK : colors.GRAY_500}
+      size={18}
     />
   );
 }
 
 function MainDrawerNavigator() {
-  const Drawer = createDrawerNavigator();
   return (
     <Drawer.Navigator
       drawerContent={CustomDrawerContent}
@@ -73,7 +69,7 @@ function MainDrawerNavigator() {
       })}>
       <Drawer.Screen
         name={mainNavigations.HOME}
-        component={MapStatckNavigator}
+        component={MapStackNavigator}
         options={{
           title: '홈',
           swipeEnabled: false,
@@ -89,9 +85,11 @@ function MainDrawerNavigator() {
       <Drawer.Screen
         name={mainNavigations.CALENDAR}
         component={CalendarHomeScreen}
-        options={{
+        options={({navigation}) => ({
           title: '캘린더',
-        }}
+          headerShown: true,
+          headerLeft: () => FeedHomeHeaderLeft(navigation),
+        })}
       />
     </Drawer.Navigator>
   );

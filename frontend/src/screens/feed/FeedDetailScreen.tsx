@@ -11,7 +11,11 @@ import {
   View,
 } from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
+import Octicons from 'react-native-vector-icons/Octicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
+import useGetPost from '@/hooks/queries/useGetPost';
 import {
   colorHex,
   colors,
@@ -19,9 +23,6 @@ import {
   mainNavigations,
   mapNavigations,
 } from '@/constants';
-import useGetPost from '@/hooks/queries/useGetPost';
-import Octicons from 'react-native-vector-icons/Octicons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import {getDateLocaleFormat} from '@/utils';
 import PreviewImageList from '@/components/common/PreviewImageList';
 import CustomButton from '@/components/common/CustomButton';
@@ -46,12 +47,12 @@ function FeedDetailScreen({route, navigation}: FeedDetailScreenProps) {
   const favoriteMutation = useMutateFavoritePost();
   const insets = useSafeAreaInsets();
   const {setMoveLocation} = useLocationStore();
-  const detailOption = useModal();
   const {setDetailPost} = useDetailPostStore();
+  const detailOption = useModal();
 
   useEffect(() => {
     post && setDetailPost(post);
-  }, [post]);
+  }, [post, setDetailPost]);
 
   if (isPending || isError) {
     return <></>;
@@ -94,8 +95,9 @@ function FeedDetailScreen({route, navigation}: FeedDetailScreenProps) {
             />
           </View>
         </SafeAreaView>
+
         <View style={styles.imageContainer}>
-          {post?.images.length > 0 && (
+          {post.images.length > 0 && (
             <Image
               style={styles.image}
               source={{
@@ -103,20 +105,21 @@ function FeedDetailScreen({route, navigation}: FeedDetailScreenProps) {
                   Platform.OS === 'ios'
                     ? 'http://localhost:3030/'
                     : 'http://10.0.2.2:3030/'
-                }${post?.images[0].uri}`,
+                }${post.images[0].uri}`,
               }}
               resizeMode="cover"
             />
           )}
-          {post?.images.length === 0 && (
+          {post.images.length === 0 && (
             <View style={styles.emptyImageContainer}>
               <Text>No Image</Text>
             </View>
           )}
         </View>
+
         <View style={styles.contentsContainer}>
           <View style={styles.addressContainer}>
-            <Octicons name="loacation" size={10} color={colors.GRAY_500} />
+            <Octicons name="location" size={10} color={colors.GRAY_500} />
             <Text
               style={styles.addressText}
               ellipsizeMode="tail"
@@ -152,12 +155,14 @@ function FeedDetailScreen({route, navigation}: FeedDetailScreenProps) {
           </View>
           <Text style={styles.descriptionText}>{post.description}</Text>
         </View>
+
         {post.images.length > 0 && (
           <View style={styles.imageContentsContainer}>
             <PreviewImageList imageUris={post.images} zoomEnable />
           </View>
         )}
       </ScrollView>
+
       <View style={[styles.bottomContainer, {paddingBottom: insets.bottom}]}>
         <View
           style={[
@@ -173,18 +178,18 @@ function FeedDetailScreen({route, navigation}: FeedDetailScreenProps) {
             <Octicons
               name="star-fill"
               size={30}
-              color={post?.isFavorite ? colors.YELLOW_500 : colors.GRAY_100}
+              color={post.isFavorite ? colors.YELLOW_500 : colors.GRAY_100}
             />
           </Pressable>
-
           <CustomButton
-            label="위치"
+            label="위치보기"
             size="medium"
             variant="filled"
             onPress={handlePressLocation}
           />
         </View>
       </View>
+
       <FeedDetailOption
         isVisible={detailOption.isVisible}
         hideOption={detailOption.hide}
@@ -194,27 +199,11 @@ function FeedDetailScreen({route, navigation}: FeedDetailScreenProps) {
 }
 
 const styles = StyleSheet.create({
-  imageContainer: {
-    width: Dimensions.get('screen').width,
-    height: Dimensions.get('screen').width,
+  container: {
+    position: 'relative',
   },
   scrollNoInsets: {
     marginBottom: 65,
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
-  emptyImageContainer: {
-    height: Dimensions.get('screen').width,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.GRAY_200,
-    borderColor: colors.GRAY_200,
-    borderWidth: 1,
-  },
-  container: {
-    position: 'relative',
   },
   headerContainer: {
     position: 'absolute',
@@ -227,6 +216,22 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 15,
     paddingVertical: 10,
+  },
+  imageContainer: {
+    width: Dimensions.get('screen').width,
+    height: Dimensions.get('screen').width,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+  },
+  emptyImageContainer: {
+    height: Dimensions.get('screen').width,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.GRAY_200,
+    borderColor: colors.GRAY_200,
+    borderWidth: 1,
   },
   contentsContainer: {
     paddingVertical: 20,
@@ -263,6 +268,13 @@ const styles = StyleSheet.create({
     height: 10,
     borderRadius: 10,
   },
+  emptyCategoryContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.GRAY_300,
+    padding: 2,
+    borderRadius: 2,
+  },
   addressContainer: {
     gap: 5,
     marginVertical: 10,
@@ -286,8 +298,8 @@ const styles = StyleSheet.create({
   bottomContainer: {
     position: 'absolute',
     bottom: 0,
-    alignItems: 'center',
     width: '100%',
+    alignItems: 'flex-end',
     paddingTop: 10,
     paddingHorizontal: 10,
     backgroundColor: colors.WHITE,

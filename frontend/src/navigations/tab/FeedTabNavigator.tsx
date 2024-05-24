@@ -1,24 +1,26 @@
-import {colors, feedNavigations, feedTabNavigations} from '@/constants';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import FeedStackNavigator from '@/navigations/stack/FeedStackNavigator';
-import FeedFavoriteScreen from '@/screens/feed/FeedFavoriteScreen';
+import React from 'react';
 import {StyleSheet} from 'react-native';
-import {
-  getFocusedRouteNameFromRoute,
-  RouteProp,
-} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {
+  RouteProp,
+  getFocusedRouteNameFromRoute,
+} from '@react-navigation/native';
+
+import FeedStackNavigator from '../stack/FeedStackNavigator';
+import FeedFavoriteScreen from '@/screens/feed/FeedFavoriteScreen';
 import FeedHomeHeaderLeft from '@/components/feed/FeedHomeHeaderLeft';
+import {colors, feedNavigations, feedTabNavigations} from '@/constants';
+import FeedSearchScreen from '@/screens/feed/FeedSearchScreen';
 
 export type FeedTabParamList = {
   [feedTabNavigations.FEED_HOME]: {
     screen: typeof feedNavigations.FEED_DETAIL;
-    params: {
-      id: number;
-    };
-    initial: false;
+    params: {id: number};
+    initial: boolean;
   };
   [feedTabNavigations.FEED_FAVORITE]: undefined;
+  [feedTabNavigations.FEED_SEARCH]: undefined;
 };
 
 const Tab = createBottomTabNavigator<FeedTabParamList>();
@@ -35,7 +37,12 @@ function TabBarIcons(route: RouteProp<FeedTabParamList>, focused: boolean) {
       iconName = focused ? 'star' : 'star-outline';
       break;
     }
+    case feedTabNavigations.FEED_SEARCH: {
+      iconName = 'search';
+      break;
+    }
   }
+
   return (
     <Ionicons
       name={iconName}
@@ -72,7 +79,9 @@ function FeedTabNavigator() {
         options={({route}) => ({
           headerShown: false,
           tabBarStyle: (tabRoute => {
-            const routeName = getFocusedRouteNameFromRoute(tabRoute);
+            const routeName =
+              getFocusedRouteNameFromRoute(tabRoute) ??
+              feedNavigations.FEED_HOME;
 
             if (
               routeName === feedNavigations.FEED_DETAIL ||
@@ -81,6 +90,7 @@ function FeedTabNavigator() {
             ) {
               return {display: 'none'};
             }
+
             return {
               backgroundColor: colors.WHITE,
               borderTopColor: colors.GRAY_200,
@@ -94,6 +104,15 @@ function FeedTabNavigator() {
         component={FeedFavoriteScreen}
         options={({navigation}) => ({
           headerTitle: '즐겨찾기',
+          headerLeft: () => FeedHomeHeaderLeft(navigation),
+        })}
+      />
+      <Tab.Screen
+        name={feedTabNavigations.FEED_SEARCH}
+        component={FeedSearchScreen}
+        options={({navigation}) => ({
+          headerTitle: '검색',
+          headerShown: false,
           headerLeft: () => FeedHomeHeaderLeft(navigation),
         })}
       />

@@ -1,8 +1,4 @@
-import {
-  DrawerContentComponentProps,
-  DrawerContentScrollView,
-  DrawerItemList,
-} from '@react-navigation/drawer';
+import React from 'react';
 import {
   Image,
   Pressable,
@@ -11,13 +7,17 @@ import {
   Text,
   View,
 } from 'react-native';
-import {colors} from '@/constants';
+import {
+  DrawerContentComponentProps,
+  DrawerContentScrollView,
+  DrawerItemList,
+} from '@react-navigation/drawer';
+
 import useAuth from '@/hooks/queries/useAuth';
-import React from 'react';
+import {colors} from '@/constants';
 
 function CustomDrawerContent(props: DrawerContentComponentProps) {
   const {logoutMutation, getProfileQuery} = useAuth();
-  // @ts-ignore
   const {email, nickname, imageUri, kakaoImageUri} = getProfileQuery.data || {};
 
   const handleLogout = () => {
@@ -31,10 +31,10 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
         scrollEnabled={false}
         contentContainerStyle={styles.contentContainer}>
         <View style={styles.userInfoContainer}>
-          <View style={styles.userImageContainer}>
+          <Pressable style={styles.userImageContainer}>
             {imageUri === null && kakaoImageUri === null && (
               <Image
-                source={require('@/assets/user.png')}
+                source={require('@/assets/user-default.png')}
                 style={styles.userImage}
               />
             )}
@@ -44,14 +44,18 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
             {imageUri !== null && (
               <Image source={{uri: imageUri}} style={styles.userImage} />
             )}
-          </View>
+          </Pressable>
+
           <Text style={styles.nameText}>{nickname ?? email}</Text>
         </View>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
       <Pressable
         onPress={handleLogout}
-        style={{alignItems: 'flex-end', padding: 10}}>
+        style={{
+          alignItems: 'flex-end',
+          padding: 10,
+        }}>
         <Text>로그아웃</Text>
       </Pressable>
     </SafeAreaView>
@@ -59,6 +63,9 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   contentContainer: {
     backgroundColor: colors.WHITE,
   },
@@ -71,19 +78,17 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     marginHorizontal: 15,
   },
-  container: {
-    flex: 1,
+  userImageContainer: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    marginBottom: 10,
   },
   userImage: {
     width: '100%',
     height: '100%',
-    borerRadius: 35,
-  },
-  userImageContainer: {
-    width: 70,
-    height: 70,
-    borerRadius: 35,
-    marginBottom: 10,
+    borderRadius: 35,
   },
 });
+
 export default CustomDrawerContent;

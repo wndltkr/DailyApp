@@ -33,4 +33,4 @@ interface Profile {
   loginType: 'email' | 'kakao' | 'apple';
 }
 
-export type {MarkerColor, Category, Marker, Post, Profile, ImageUri};
+export type {MarkerColor, Category, ImageUri, Profile, Marker, Post};

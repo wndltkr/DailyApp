@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {FlatList, StyleSheet} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import useGetInfinitePosts from '@/hooks/queries/useGetInfinitePosts';
-import FeedItem from '@/components/feed/FeedItem';
+import FeedItem from './FeedItem';
 
 function FeedList() {
   const {
@@ -11,19 +11,18 @@ function FeedList() {
     isFetchingNextPage,
     refetch,
   } = useGetInfinitePosts();
-
   const [isRefreshing, setIsRefreshing] = useState(false);
-
-  const handleEndReached = () => {
-    if (hasNextPage && !isFetchingNextPage) {
-      fetchNextPage();
-    }
-  };
 
   const handleRefresh = async () => {
     setIsRefreshing(true);
     await refetch();
     setIsRefreshing(false);
+  };
+
+  const handleEndReached = () => {
+    if (hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
+    }
   };
 
   return (

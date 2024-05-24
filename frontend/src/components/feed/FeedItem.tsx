@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Dimensions,
   Image,
@@ -7,10 +8,9 @@ import {
   Text,
   View,
 } from 'react-native';
-import React from 'react';
 import {ResponsePost} from '@/api';
-import {getDateWithSeparator} from '@/utils';
 import {colors, feedNavigations} from '@/constants';
+import {getDateWithSeparator} from '@/utils';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
 import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
@@ -19,16 +19,15 @@ interface FeedItemProps {
   post: ResponsePost;
 }
 
-type Navigation = StackNavigationProp<FeedStackParamList>;
-
 function FeedItem({post}: FeedItemProps) {
-  const navigation = useNavigation<Navigation>();
-  const hadlePressFeed = () => {
+  const navigation = useNavigation<StackNavigationProp<FeedStackParamList>>();
+
+  const handlePressFeed = () => {
     navigation.navigate(feedNavigations.FEED_DETAIL, {id: post.id});
   };
 
   return (
-    <Pressable style={styles.container} onPress={hadlePressFeed}>
+    <Pressable style={styles.container} onPress={handlePressFeed}>
       <View>
         {post.images.length > 0 && (
           <View key={post.id} style={styles.imageContainer}>
@@ -50,6 +49,7 @@ function FeedItem({post}: FeedItemProps) {
             <Text style={styles.descriptionText}>No Image</Text>
           </View>
         )}
+
         <View style={styles.textContainer}>
           <Text style={styles.dateText}>
             {getDateWithSeparator(post.date, '/')}
@@ -67,6 +67,8 @@ function FeedItem({post}: FeedItemProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    margin: 5,
+    marginVertical: 12,
   },
   imageContainer: {
     width: Dimensions.get('screen').width / 2 - 25,
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
   emptyImageContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    borderColor: colors.GRAY_500,
+    borderColor: colors.GRAY_200,
     borderRadius: 5,
     borderWidth: 1,
   },

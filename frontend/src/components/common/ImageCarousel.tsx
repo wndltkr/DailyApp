@@ -1,31 +1,32 @@
-import {ImageUri} from '@/types';
+import React, {useState} from 'react';
 import {
   Dimensions,
-  FlatList,
   Image,
   NativeScrollEvent,
   NativeSyntheticEvent,
   Platform,
   Pressable,
+  FlatList,
   StyleSheet,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
-import {colors} from '@/constants';
-import Octicons from 'react-native-vector-icons/Octicons';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import Octicons from 'react-native-vector-icons/Octicons';
 
-interface ImageCarouselProps {
+import {colors} from '@/constants';
+import type {ImageUri} from '@/types';
+
+interface ImageCarousel {
   images: ImageUri[];
   pressedIndex?: number;
 }
 
 const deviceWidth = Dimensions.get('window').width;
 
-function ImageCarousel({images, pressedIndex = 0}: ImageCarouselProps) {
-  const navigation = useNavigation();
+function ImageCarousel({images, pressedIndex = 0}: ImageCarousel) {
   const insets = useSafeAreaInsets();
+  const navigation = useNavigation();
   const [page, setPage] = useState(pressedIndex);
   const [initialIndex, setInitialIndex] = useState(pressedIndex);
 
@@ -42,6 +43,7 @@ function ImageCarousel({images, pressedIndex = 0}: ImageCarouselProps) {
         onPress={() => navigation.goBack()}>
         <Octicons name="arrow-left" size={30} color={colors.WHITE} />
       </Pressable>
+
       <FlatList
         data={images}
         renderItem={({item}) => (
@@ -51,9 +53,9 @@ function ImageCarousel({images, pressedIndex = 0}: ImageCarouselProps) {
               source={{
                 uri: `${
                   Platform.OS === 'ios'
-                    ? 'http://localhost:3030'
-                    : 'http://10.0.2.2:3030'
-                }/${item.uri}`,
+                    ? 'http://localhost:3030/'
+                    : 'http://10.0.2.2:3030/'
+                }${item.uri}`,
               }}
               resizeMode="contain"
             />
@@ -74,6 +76,7 @@ function ImageCarousel({images, pressedIndex = 0}: ImageCarouselProps) {
           index,
         })}
       />
+
       <View style={[styles.pageContainer, {bottom: insets.bottom + 10}]}>
         {Array.from({length: images.length}, (_, index) => (
           <View
@@ -87,10 +90,6 @@ function ImageCarousel({images, pressedIndex = 0}: ImageCarouselProps) {
 }
 
 const styles = StyleSheet.create({
-  image: {
-    width: '100%',
-    height: '100%',
-  },
   container: {
     flex: 1,
     alignItems: 'center',
@@ -106,6 +105,10 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
   },
   pageContainer: {
     flexDirection: 'row',

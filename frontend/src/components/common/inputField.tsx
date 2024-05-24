@@ -1,15 +1,16 @@
-import React, {ForwardedRef, forwardRef, ReactNode, useRef} from 'react';
+import React, {ForwardedRef, ReactNode, forwardRef, useRef} from 'react';
 import {
   Dimensions,
   StyleSheet,
   TextInput,
-  TextInputProps,
   View,
+  TextInputProps,
   Text,
   Pressable,
 } from 'react-native';
-import {colors} from '../../constants';
-import {mergeRefs} from '../../utils';
+
+import {mergeRefs} from '@/utils';
+import {colors} from '@/constants';
 
 interface InputFieldProps extends TextInputProps {
   disabled?: boolean;
@@ -19,22 +20,25 @@ interface InputFieldProps extends TextInputProps {
 }
 
 const deviceHeight = Dimensions.get('screen').height;
-const inputField = forwardRef(
+
+const InputField = forwardRef(
   (
     {disabled = false, error, touched, icon = null, ...props}: InputFieldProps,
     ref?: ForwardedRef<TextInput>,
   ) => {
     const innerRef = useRef<TextInput | null>(null);
+
     const handlePressInput = () => {
       innerRef.current?.focus();
     };
+
     return (
       <Pressable onPress={handlePressInput}>
         <View
           style={[
             styles.container,
             disabled && styles.disabled,
-              props.multiline && styles.multiLine,
+            props.multiline && styles.multiLine,
             touched && Boolean(error) && styles.inputError,
           ]}>
           <View style={Boolean(icon) && styles.innerContainer}>
@@ -65,10 +69,18 @@ const styles = StyleSheet.create({
     borderColor: colors.GRAY_200,
     padding: deviceHeight > 700 ? 15 : 10,
   },
+  multiLine: {
+    paddingBottom: deviceHeight > 700 ? 45 : 30,
+  },
   input: {
     fontSize: 16,
     color: colors.BLACK,
     padding: 0,
+  },
+  innerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
   },
   disabled: {
     backgroundColor: colors.GRAY_200,
@@ -83,13 +95,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     paddingTop: 5,
   },
-  innerContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 5,
-  },
-  multiLine: {
-    paddingBottom: deviceHeight > 700 ? 45 : 30,
-  },
 });
-export default inputField;
+
+export default InputField;

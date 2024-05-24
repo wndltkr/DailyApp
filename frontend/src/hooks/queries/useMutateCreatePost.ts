@@ -1,13 +1,13 @@
-import {UseMutationCustomOptions, Marker} from '@/types';
 import {useMutation} from '@tanstack/react-query';
-import {createPost} from '@/api';
+
+import {createPost} from '@/api/post';
+import {Marker, UseMutationCustomOptions} from '@/types';
 import queryClient from '@/api/queryClient';
 import {queryKeys} from '@/constants';
 
 function useMutateCreatePost(mutationOptions?: UseMutationCustomOptions) {
   return useMutation({
     mutationFn: createPost,
-    ...mutationOptions,
     onSuccess: newPost => {
       queryClient.invalidateQueries({
         queryKey: [queryKeys.POST, queryKeys.GET_POSTS],
@@ -30,6 +30,7 @@ function useMutateCreatePost(mutationOptions?: UseMutationCustomOptions) {
         },
       );
     },
+
     ...mutationOptions,
   });
 }

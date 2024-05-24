@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
-import GeoLocation from '@react-native-community/geolocation';
 import {LatLng} from 'react-native-maps';
+import GeoLocation from '@react-native-community/geolocation';
+
 import useAppState from './useAppState';
 
 function useUserLocation() {

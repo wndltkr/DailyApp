@@ -6,28 +6,29 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import {colors} from '@/constants';
-import InputField from '@/components/common/inputField';
 import Octicons from 'react-native-vector-icons/Octicons';
-import CustomButton from '@/components/common/CustomButton';
-import useForm from '@/hooks/useForm';
-import {getDateWithSeparator, validateAddPost} from '@/utils';
-import AddPostHeaderRight from '@/components/post/AddPostHeaderRight';
+import {LatLng} from 'react-native-maps';
+import {useNavigation} from '@react-navigation/core';
+import {StackNavigationProp} from '@react-navigation/stack';
+
+import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
 import useMutateCreatePost from '@/hooks/queries/useMutateCreatePost';
-import {MarkerColor} from '@/types';
 import useGetAddress from '@/hooks/useGetAddress';
+import useModal from '@/hooks/useModal';
+import useForm from '@/hooks/useForm';
+import usePermission from '@/hooks/usePermission';
+import useImagePicker from '@/hooks/useImagePicker';
+import InputField from '@/components/common/InputField';
+import CustomButton from '@/components/common/CustomButton';
+import AddPostHeaderRight from '@/components/post/AddPostHeaderRight';
 import MarkerSelector from '@/components/post/MarkerSelector';
 import ScoreInput from '@/components/post/ScoreInput';
 import DatePickerOption from '@/components/post/DatePickerOption';
-import useModal from '@/hooks/useModal';
 import ImageInput from '@/components/post/ImageInput';
-import usePermission from '@/hooks/usePermission';
-import useImagePicker from '@/hooks/useImagePicker';
 import PreviewImageList from '@/components/common/PreviewImageList';
-import {LatLng} from 'react-native-maps';
-import {useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
+import {getDateWithSeparator, validateAddPost} from '@/utils';
+import {colors} from '@/constants';
+import {MarkerColor} from '@/types';
 import useDetailPostStore from '@/store/useDetailPostStore';
 import useMutateUpdatePost from '@/hooks/queries/useMutateUpdatePost';
 
@@ -55,20 +56,18 @@ function PostForm({location, isEdit = false}: PostFormProps) {
   const [date, setDate] = useState(
     isEditMode ? new Date(String(detailPost.date)) : new Date(),
   );
+  const [isPicked, setIsPicked] = useState(false);
   const [markerColor, setMarkerColor] = useState<MarkerColor>(
     isEditMode ? detailPost.color : 'RED',
   );
   const [score, setScore] = useState(isEditMode ? detailPost.score : 5);
-  const [isPicked, setIsPicked] = useState(false);
   const imagePicker = useImagePicker({
     initialImages: isEditMode ? detailPost.images : [],
   });
   usePermission('PHOTO');
 
-  const handleSelectMarker = (name: MarkerColor) => [setMarkerColor(name)];
-
-  const handleChangeScore = (value: number) => {
-    setScore(value);
+  const handleChangeDate = (pickedDate: Date) => {
+    setDate(pickedDate);
   };
 
   const handleConfirmDate = () => {
@@ -76,8 +75,12 @@ function PostForm({location, isEdit = false}: PostFormProps) {
     datePickerModal.hide();
   };
 
-  const handleChangeDate = (pickedDate: Date) => {
-    setDate(pickedDate);
+  const handleSelectMarker = (name: MarkerColor) => {
+    setMarkerColor(name);
+  };
+
+  const handleChangeScore = (value: number) => {
+    setScore(value);
   };
 
   const handleSubmit = () => {
@@ -92,10 +95,7 @@ function PostForm({location, isEdit = false}: PostFormProps) {
 
     if (isEditMode) {
       updatePost.mutate(
-        {
-          id: detailPost.id,
-          body,
-        },
+        {id: detailPost.id, body},
         {
           onSuccess: () => navigation.goBack(),
         },
@@ -123,7 +123,7 @@ function PostForm({location, isEdit = false}: PostFormProps) {
         <View style={styles.inputContainer}>
           <InputField
             value={address}
-            disabled
+            disabled={true}
             icon={
               <Octicons name="location" size={16} color={colors.GRAY_500} />
             }
@@ -139,22 +139,24 @@ function PostForm({location, isEdit = false}: PostFormProps) {
             onPress={datePickerModal.show}
           />
           <InputField
-            placeholder="제목을 입력하세요."
+            {...addPost.getTextInputProps('title')}
             error={addPost.errors.title}
             touched={addPost.touched.title}
+            placeholder="제목을 입력하세요."
             returnKeyType="next"
             blurOnSubmit={false}
-            onSubmitEditing={() => descriptionRef.current?.focus()}
-            {...addPost.getTextInputProps('title')}
+            onSubmitEditing={() => {
+              descriptionRef.current?.focus();
+            }}
           />
           <InputField
-            ref={descriptionRef}
-            placeholder="기록하고 싶은 내용을 입력하세요."
+            {...addPost.getTextInputProps('description')}
             error={addPost.errors.description}
             touched={addPost.touched.description}
-            multiline
+            ref={descriptionRef}
+            placeholder="기록하고 싶은 내용을 입력하세요. (선택)"
             returnKeyType="next"
-            {...addPost.getTextInputProps('description')}
+            multiline
           />
           <MarkerSelector
             score={score}
@@ -172,8 +174,8 @@ function PostForm({location, isEdit = false}: PostFormProps) {
             />
           </View>
           <DatePickerOption
-            isVisible={datePickerModal.isVisible}
             date={date}
+            isVisible={datePickerModal.isVisible}
             onChangeDate={handleChangeDate}
             onConfirmDate={handleConfirmDate}
           />
@@ -187,18 +189,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  inputContainer: {
-    gap: 20,
-    marginBottom: 20,
-  },
   contentContainer: {
     flex: 1,
     padding: 20,
     marginBottom: 10,
   },
+  inputContainer: {
+    gap: 20,
+    marginBottom: 20,
+  },
   imagesViewer: {
     flexDirection: 'row',
   },
 });
-
 export default PostForm;

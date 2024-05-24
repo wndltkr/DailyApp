@@ -1,26 +1,26 @@
+import {useEffect} from 'react';
+import {useMutation, useQuery} from '@tanstack/react-query';
+
 import {
-  QueryKey,
-  useMutation,
-  useQuery,
-  UseQueryOptions,
-} from '@tanstack/react-query';
-import {
+  ResponseProfile,
   getAccessToken,
   getProfile,
   logout,
   postLogin,
   postSignup,
 } from '@/api/auth';
-import {ResponseError, UseMutationCustomOptions} from '@/types';
 import {
   removeEncryptStorage,
-  setEncryptStorage,
   removeHeader,
+  setEncryptStorage,
   setHeader,
 } from '@/utils';
-import {useEffect} from 'react';
 import queryClient from '@/api/queryClient';
 import {numbers, queryKeys, storageKeys} from '@/constants';
+import type {
+  UseMutationCustomOptions,
+  UseQueryCustomOptions,
+} from '@/types/common';
 
 function useSignup(mutationOptions?: UseMutationCustomOptions) {
   return useMutation({
@@ -33,8 +33,8 @@ function useLogin(mutationOptions?: UseMutationCustomOptions) {
   return useMutation({
     mutationFn: postLogin,
     onSuccess: ({accessToken, refreshToken}) => {
-      setEncryptStorage(storageKeys.REFRESH_TOKEN, refreshToken);
       setHeader('Authorization', `Bearer ${accessToken}`);
+      setEncryptStorage(storageKeys.REFRESH_TOKEN, refreshToken);
     },
     onSettled: () => {
       queryClient.refetchQueries({
@@ -49,7 +49,7 @@ function useLogin(mutationOptions?: UseMutationCustomOptions) {
 }
 
 function useGetRefreshToken() {
-  const {isSuccess, data, isError} = useQuery({
+  const {data, error, isSuccess, isError} = useQuery({
     queryKey: [queryKeys.AUTH, queryKeys.GET_ACCESS_TOKEN],
     queryFn: getAccessToken,
     staleTime: numbers.ACCESS_TOKEN_REFRESH_TIME,
@@ -68,22 +68,17 @@ function useGetRefreshToken() {
   useEffect(() => {
     if (isError) {
       removeHeader('Authorization');
-      removeEncryptStorage('Authorization');
+      removeEncryptStorage(storageKeys.REFRESH_TOKEN);
     }
   }, [isError]);
 
   return {isSuccess, isError};
 }
 
-type UseQueryCustomOptions<TQueryFnData = unknown, TData = TQueryFnData> = Omit<
-  UseQueryOptions<TQueryFnData, ResponseError, TData, QueryKey>,
-  'queryKey'
->;
-
-function useGetProfile(queryOptions?: UseQueryCustomOptions) {
+function useGetProfile(queryOptions?: UseQueryCustomOptions<ResponseProfile>) {
   return useQuery({
-    queryKey: [queryKeys.AUTH, queryKeys.GET_PROFILE],
     queryFn: getProfile,
+    queryKey: [queryKeys.AUTH, queryKeys.GET_PROFILE],
     ...queryOptions,
   });
 }
@@ -108,7 +103,6 @@ function useAuth() {
   const getProfileQuery = useGetProfile({
     enabled: refreshTokenQuery.isSuccess,
   });
-
   const isLogin = getProfileQuery.isSuccess;
   const loginMutation = useLogin();
   const logoutMutation = useLogout();
@@ -116,8 +110,8 @@ function useAuth() {
   return {
     signupMutation,
     loginMutation,
-    isLogin,
     getProfileQuery,
+    isLogin,
     logoutMutation,
   };
 }

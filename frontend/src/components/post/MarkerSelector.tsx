@@ -1,12 +1,20 @@
 import React from 'react';
-import {Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
-import CustomMarker from '@/components/common/CustomMarker';
-import {colors} from '@/constants';
-import {MarkerColor} from '@/types';
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  PressableProps,
+  ScrollView,
+} from 'react-native';
 
-interface MarkerSelectorProps {
+import {colors} from '@/constants';
+import type {MarkerColor} from '@/types';
+import CustomMarker from '../common/CustomMarker';
+
+interface MarkerSelectorProps extends PressableProps {
   markerColor: MarkerColor;
-  onPressMarker: (color: MarkerColor) => void;
+  onPressMarker: (name: MarkerColor) => void;
   score?: number;
 }
 
@@ -18,19 +26,20 @@ const categoryList: MarkerColor[] = [
   'PURPLE',
 ];
 
-function MarkerSelector({
+const MarkerSelector = ({
   markerColor,
   score = 5,
   onPressMarker,
-}: MarkerSelectorProps) {
+}: MarkerSelectorProps) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.markerLabel}>마커 선택</Text>
+      <Text style={styles.markerLabel}>마커선택</Text>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        <View>
+        <View style={styles.markerInputScroll}>
           {categoryList.map(color => {
             return (
               <Pressable
+                key={color}
                 style={[
                   styles.markerBox,
                   markerColor === color && styles.pressedMarker,
@@ -44,7 +53,7 @@ function MarkerSelector({
       </ScrollView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -52,13 +61,13 @@ const styles = StyleSheet.create({
     borderColor: colors.GRAY_200,
     padding: 15,
   },
+  markerInputScroll: {
+    flexDirection: 'row',
+    gap: 20,
+  },
   markerLabel: {
     marginBottom: 15,
     color: colors.GRAY_700,
-  },
-  marketInputScroll: {
-    flexDirection: 'row',
-    gap: 20,
   },
   markerBox: {
     alignItems: 'center',

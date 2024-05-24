@@ -1,6 +1,6 @@
 import axiosInstance from './axios';
-import type {Category, Profile} from '@/types';
 import {getEncryptStorage} from '@/utils';
+import type {Category, Profile} from '@/types/domain';
 
 type RequestUser = {
   email: string;
@@ -8,10 +8,7 @@ type RequestUser = {
 };
 
 const postSignup = async ({email, password}: RequestUser): Promise<void> => {
-  const {data} = await axiosInstance.post('/auth/signup', {
-    email,
-    password,
-  });
+  const {data} = await axiosInstance.post('/auth/signup', {email, password});
 
   return data;
 };
@@ -25,10 +22,8 @@ const postLogin = async ({
   email,
   password,
 }: RequestUser): Promise<ResponseToken> => {
-  const {data} = await axiosInstance.post('/auth/signin', {
-    email,
-    password,
-  });
+  const {data} = await axiosInstance.post('/auth/signin', {email, password});
+
   return data;
 };
 
@@ -41,7 +36,8 @@ const getProfile = async (): Promise<ResponseProfile> => {
 };
 
 const getAccessToken = async (): Promise<ResponseToken> => {
-  const {refreshToken} = await getEncryptStorage('refreshToken');
+  const refreshToken = await getEncryptStorage('refreshToken');
+
   const {data} = await axiosInstance.get('/auth/refresh', {
     headers: {
       Authorization: `Bearer ${refreshToken}`,
@@ -52,7 +48,7 @@ const getAccessToken = async (): Promise<ResponseToken> => {
 };
 
 const logout = async () => {
-  await axiosInstance.post('auth/logout');
+  await axiosInstance.post('/auth/logout');
 };
 
 export {postSignup, postLogin, getProfile, getAccessToken, logout};

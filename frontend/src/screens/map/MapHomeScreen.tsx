@@ -4,25 +4,27 @@ import MapView, {
   Callout,
   LatLng,
   LongPressEvent,
+  Marker,
   PROVIDER_GOOGLE,
 } from 'react-native-maps';
-import {alerts, colors, mapNavigations, numbers} from '@/constants';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
-import {StackNavigationProp} from '@react-navigation/stack';
-import {MapStackParamList} from '@/navigations/stack/MapStatckNavigator';
-import {DrawerNavigationProp} from '@react-navigation/drawer';
-import {MainDrawerParamList} from '@/navigations/drawer/MainDrawerNavigator';
-import useUserLocation from '@/hooks/useUserLocation';
-import usePermission from '@/hooks/usePermission';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import mapStyle from '@/style/mapStyle';
-import CustomMarker from '@/components/common/CustomMarker';
-import useGetMarkers from '@/hooks/queries/useGetMarkers';
-import MarkerModal from '@/components/map/MarkerModal';
+import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
+import {DrawerNavigationProp} from '@react-navigation/drawer';
+import {StackNavigationProp} from '@react-navigation/stack';
+
+import {MainDrawerParamList} from '@/navigations/drawer/MainDrawerNavigator';
 import useModal from '@/hooks/useModal';
+import useGetMarkers from '@/hooks/queries/useGetMarkers';
+import useUserLocation from '@/hooks/useUserLocation';
+import usePermission from '@/hooks/usePermission';
+import CustomMarker from '@/components/common/CustomMarker';
+import MarkerModal from '@/components/map/MarkerModal';
+import mapStyle from '@/style/mapStyle';
+import {alerts, colors, mapNavigations, numbers} from '@/constants';
 import useMoveMapView from '@/hooks/useMoveMapView';
+import {MapStackParamList} from '@/navigations/stack/MapStatckNavigator';
 
 type Navigation = CompositeNavigationProp<
   StackNavigationProp<MapStackParamList>,
@@ -33,17 +35,17 @@ function MapHomeScreen() {
   const inset = useSafeAreaInsets();
   const navigation = useNavigation<Navigation>();
   const {userLocation, isUserLocationError} = useUserLocation();
-  const {data: markers = []} = useGetMarkers();
-  const markerModal = useModal();
+  const [selectLocation, setSelectLocation] = useState<LatLng | null>();
   const [markerId, setMarkerId] = useState<number | null>(null);
-  const [selectLocation, setSelectLocation] = useState<LatLng>();
+  const markerModal = useModal();
+  const {data: markers = []} = useGetMarkers();
   const {mapRef, moveMapView, handleChangeDelta} = useMoveMapView();
   usePermission('LOCATION');
 
   const handlePressMarker = (id: number, coordinate: LatLng) => {
-    moveMapView(coordinate);
     setMarkerId(id);
     markerModal.show();
+    moveMapView(coordinate);
   };
 
   const handleLongPressMapView = ({nativeEvent}: LongPressEvent) => {
@@ -61,12 +63,15 @@ function MapHomeScreen() {
     navigation.navigate(mapNavigations.ADD_POST, {
       location: selectLocation,
     });
+    setSelectLocation(null);
   };
 
   const handlePressUserLocation = () => {
     if (isUserLocationError) {
+      // 에러메세지를 표시하기
       return;
     }
+
     moveMapView(userLocation);
   };
 
@@ -86,21 +91,22 @@ function MapHomeScreen() {
           ...userLocation,
           ...numbers.INITIAL_DELTA,
         }}>
-        {markers.map(({id, color, score, ...coordinate}) => {
+        {markers.map(({id, color, score, ...coordinate}) => (
           <CustomMarker
-            coordinate={coordinate}
-            color={color}
             key={id}
+            color={color}
             score={score}
+            coordinate={coordinate}
             onPress={() => handlePressMarker(id, coordinate)}
-          />;
-        })}
+          />
+        ))}
         {selectLocation && (
           <Callout>
-            <CustomMarker color="BLUE" coordinate={selectLocation} />
+            <Marker coordinate={selectLocation} />
           </Callout>
         )}
       </MapView>
+
       <Pressable
         style={[styles.drawerButton, {top: inset.top || 20}]}
         onPress={() => navigation.openDrawer()}>

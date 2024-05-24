@@ -1,6 +1,7 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {Pressable, StyleSheet, Text} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import {colors} from '@/constants';
 
 interface ImageInputProps {
@@ -9,17 +10,15 @@ interface ImageInputProps {
 
 function ImageInput({onChange}: ImageInputProps) {
   return (
-    <View>
-      <Pressable
-        style={({pressed}) => [
-          pressed && styles.imageInputPressed,
-          styles.imageInput,
-        ]}
-        onPress={onChange}>
-        <Ionicons name="camera-outline" size={20} color={colors.GRAY_500} />
-        <Text style={styles.inputText}>사진 추가</Text>
-      </Pressable>
-    </View>
+    <Pressable
+      style={({pressed}) => [
+        pressed && styles.imageInputPressed,
+        styles.imageInput,
+      ]}
+      onPress={onChange}>
+      <Ionicons name="camera-outline" size={20} color={colors.GRAY_500} />
+      <Text style={styles.inputText}>사진 추가</Text>
+    </Pressable>
   );
 }
 

@@ -1,6 +1,7 @@
-import {UseMutationCustomOptions} from '@/types';
 import {useMutation} from '@tanstack/react-query';
-import {updatePost} from '@/api';
+
+import {updatePost} from '@/api/post';
+import {UseMutationCustomOptions} from '@/types';
 import queryClient from '@/api/queryClient';
 import {queryKeys} from '@/constants';
 

@@ -1,8 +1,9 @@
-import {StackScreenProps} from '@react-navigation/stack';
-import {MapStackParamList} from '@/navigations/stack/MapStatckNavigator';
 import React from 'react';
+import {StackScreenProps} from '@react-navigation/stack';
+
+import PostForm from '@/components/post/PostForm';
 import {mapNavigations} from '@/constants';
-import PostForm from '@/components/post/postForm';
+import {MapStackParamList} from '@/navigations/stack/MapStatckNavigator';
 
 type AddPostScreenProps = StackScreenProps<
   MapStackParamList,
@@ -11,6 +12,7 @@ type AddPostScreenProps = StackScreenProps<
 
 function AddPostScreen({route}: AddPostScreenProps) {
   const {location} = route.params;
+
   return <PostForm location={location} />;
 }
 
