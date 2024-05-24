@@ -18,7 +18,6 @@ import useModal from '@/hooks/useModal';
 import useForm from '@/hooks/useForm';
 import usePermission from '@/hooks/usePermission';
 import useImagePicker from '@/hooks/useImagePicker';
-import InputField from '@/components/common/InputField';
 import CustomButton from '@/components/common/CustomButton';
 import AddPostHeaderRight from '@/components/post/AddPostHeaderRight';
 import MarkerSelector from '@/components/post/MarkerSelector';
@@ -31,6 +30,7 @@ import {colors} from '@/constants';
 import {MarkerColor} from '@/types';
 import useDetailPostStore from '@/store/useDetailPostStore';
 import useMutateUpdatePost from '@/hooks/queries/useMutateUpdatePost';
+import InputField from '@/components/common/inputField';
 
 interface PostFormProps {
   isEdit?: boolean;

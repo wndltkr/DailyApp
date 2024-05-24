@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from "react";
-import {colors, numbers} from "@/constants";
-import {FlatList, Pressable, StyleSheet, Text, View} from "react-native";
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-
+import React, {useEffect, useState} from 'react';
+import {colors, numbers} from '@/constants';
+import {FlatList, Pressable, StyleSheet, Text, View} from 'react-native';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 interface YearSelectorProps {
   isVisible: boolean;

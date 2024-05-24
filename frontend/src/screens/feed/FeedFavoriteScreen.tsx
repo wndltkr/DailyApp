@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, SafeAreaView, Text} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 
 import {colors} from '@/constants';
 import FeedFavoriteList from '@/components/feed/FeedFavoriteList';

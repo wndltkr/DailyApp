@@ -2,8 +2,8 @@ import React from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
 
 import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
-import PostForm from '@/components/post/PostForm';
 import {feedNavigations} from '@/constants';
+import PostForm from '@/components/post/postForm';
 
 type EditPostScreenProps = StackScreenProps<
   FeedStackParamList,

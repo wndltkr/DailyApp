@@ -1,6 +1,6 @@
-import React from "react";
-import {Dimensions, StyleSheet, Text, View} from "react-native";
-import {colors} from "@/constants";
+import React from 'react';
+import {Dimensions, StyleSheet, Text, View} from 'react-native';
+import {colors} from '@/constants';
 
 const deviceWidth = Dimensions.get('window').width;
 
