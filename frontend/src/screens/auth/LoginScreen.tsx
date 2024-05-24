@@ -1,11 +1,12 @@
 import React, {useRef} from 'react';
 import {SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
 
-import InputField from '@/components/common/InputField';
+
 import CustomButton from '@/components/common/CustomButton';
 import useForm from '@/hooks/useForm';
 import useAuth from '@/hooks/queries/useAuth';
 import {validateLogin} from '@/utils';
+import InputField from "@/components/common/inputField";
 
 function LoginScreen() {
   const {loginMutation} = useAuth();
@@ -20,6 +21,7 @@ function LoginScreen() {
   };
 
   return (
+
     <SafeAreaView style={styles.container}>
       <View style={styles.inputContainer}>
         <InputField
