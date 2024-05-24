@@ -1,9 +1,8 @@
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {LatLng, Marker, MyMapMarkerProps} from 'react-native-maps';
-
 import {colorHex, colors} from '@/constants';
 import {MarkerColor} from '@/types';
+import {LatLng, Marker, MyMapMarkerProps} from "react-native-maps";
+import {StyleSheet, View} from "react-native";
+import React from "react";
 
 interface CustomMarkerProps extends MyMapMarkerProps {
   coordinate?: LatLng;

@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  PressableProps,
-  Dimensions,
-  View,
-} from 'react-native';
+import {Dimensions, Pressable, PressableProps, StyleSheet, Text, View,} from 'react-native';
 
 import {colors} from '@/constants';
 

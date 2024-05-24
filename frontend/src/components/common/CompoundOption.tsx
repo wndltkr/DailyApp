@@ -1,16 +1,16 @@
-import {PropsWithChildren, ReactNode, createContext, useContext} from 'react';
 import {
   GestureResponderEvent,
   Modal,
   ModalProps,
   Pressable,
   PressableProps,
-  SafeAreaView,
-  StyleSheet,
+  SafeAreaView, StyleSheet,
   Text,
-  View,
-} from 'react-native';
-import {colors} from '@/constants';
+  View
+} from "react-native";
+import React, {createContext, PropsWithChildren, ReactNode, useContext} from "react";
+import {colors} from "@/constants";
+
 
 interface OptionContextValue {
   onClickOutSide?: (event: GestureResponderEvent) => void;

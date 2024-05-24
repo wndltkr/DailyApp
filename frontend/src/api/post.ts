@@ -1,5 +1,5 @@
-import {ImageUri, Post} from '@/types';
-import axiosInstance from './axios';
+import {ImageUri, Post} from "@/types";
+import axiosInstance from "@/api/axios";
 
 type ResponsePost = Post & {images: ImageUri[]};
 

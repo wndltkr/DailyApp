@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="5.23">
+    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="5.24">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/LoginScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/LoginScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/axios.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/image.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/marker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/marker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/post.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/queryClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/queryClient.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/Calendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/Calendar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/DateBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/DateBox.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/DayOfWeeks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/DayOfWeeks.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/EventList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/EventList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/YearSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/YearSelector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/CompoundOption.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/CompoundOption.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/CustomButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/CustomButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/CustomMarker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/CustomMarker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/inputField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/inputField.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +134,7 @@
       <workItem from="1716368427410" duration="121000" />
       <workItem from="1716422608154" duration="22317000" />
       <workItem from="1716452330504" duration="2197000" />
-      <workItem from="1716509064725" duration="21183000" />
+      <workItem from="1716509064725" duration="21980000" />
     </task>
     <task id="LOCAL-00001" summary="4.16">
       <option name="closed" value="true" />
@@ -371,11 +384,30 @@
       <option name="project" value="LOCAL" />
       <updated>1716533440405</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="5.24">
+      <option name="closed" value="true" />
+      <created>1716535994383</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1716535994383</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

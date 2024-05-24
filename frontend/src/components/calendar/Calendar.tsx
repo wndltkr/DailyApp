@@ -1,14 +1,14 @@
-import React from 'react';
-import {FlatList, StyleSheet, View, Pressable, Text} from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {isSameAsCurrentDate, MonthYear} from "@/utils";
+import useModal from "@/hooks/useModal";
+import React from "react";
+import {FlatList, Pressable, StyleSheet, Text, View} from "react-native";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import {colors} from "@/constants";
+import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import DayOfWeeks from "@/components/calendar/DayOfWeeks";
+import DateBox from "@/components/calendar/DateBox";
+import YearSelector from "@/components/calendar/YearSelector";
 
-import {MonthYear, isSameAsCurrentDate} from '@/utils';
-import {colors} from '@/constants';
-import DayOfWeeks from './DayOfWeeks';
-import DateBox from './DateBox';
-import YearSelector from './YearSelector';
-import useModal from '@/hooks/useModal';
 
 interface CalendarProps<T> {
   monthYear: MonthYear;

@@ -1,7 +1,7 @@
-import React from 'react';
-import {Dimensions, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Dimensions, Pressable, StyleSheet, Text, View} from "react-native";
+import React from "react";
+import {colors} from "@/constants";
 
-import {colors} from '@/constants';
 
 interface DateBoxProps {
   date: number;
