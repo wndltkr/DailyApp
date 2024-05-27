@@ -8,11 +8,13 @@ const authNavigations = {
   AUTH_HOME: 'AuthHome',
   LOGIN: 'Login',
   SIGNUP: 'Signup',
+  KAKAO: 'Kakao',
 } as const;
 
 const mapNavigations = {
   MAP_HOME: 'MapHome',
   ADD_POST: 'AddPost',
+  SEARCH_LOCATION: 'SearchLocation',
 } as const;
 
 const feedNavigations = {

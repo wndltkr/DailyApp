@@ -13,6 +13,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {StackNavigationProp} from '@react-navigation/stack';
+import Toast from 'react-native-toast-message';
 
 import {MainDrawerParamList} from '@/navigations/drawer/MainDrawerNavigator';
 import useModal from '@/hooks/useModal';
@@ -25,6 +26,7 @@ import mapStyle from '@/style/mapStyle';
 import {alerts, colors, mapNavigations, numbers} from '@/constants';
 import useMoveMapView from '@/hooks/useMoveMapView';
 import {MapStackParamList} from '@/navigations/stack/MapStatckNavigator';
+import useLocationStore from '@/store/useLocationStore';
 
 type Navigation = CompositeNavigationProp<
   StackNavigationProp<MapStackParamList>,
@@ -35,7 +37,7 @@ function MapHomeScreen() {
   const inset = useSafeAreaInsets();
   const navigation = useNavigation<Navigation>();
   const {userLocation, isUserLocationError} = useUserLocation();
-  const [selectLocation, setSelectLocation] = useState<LatLng | null>();
+  const {selectLocation, setSelectLocation} = useLocationStore();
   const [markerId, setMarkerId] = useState<number | null>(null);
   const markerModal = useModal();
   const {data: markers = []} = useGetMarkers();
@@ -68,11 +70,19 @@ function MapHomeScreen() {
 
   const handlePressUserLocation = () => {
     if (isUserLocationError) {
-      // 에러메세지를 표시하기
+      Toast.show({
+        type: 'error',
+        text1: '위치 권한을 허용해주세요.',
+        position: 'bottom',
+      });
       return;
     }
 
     moveMapView(userLocation);
+  };
+
+  const handlePressSearch = () => {
+    navigation.navigate(mapNavigations.SEARCH_LOCATION);
   };
 
   return (
@@ -115,6 +125,9 @@ function MapHomeScreen() {
       <View style={styles.buttonList}>
         <Pressable style={styles.mapButton} onPress={handlePressAddPost}>
           <MaterialIcons name="add" color={colors.WHITE} size={25} />
+        </Pressable>
+        <Pressable style={styles.mapButton} onPress={handlePressSearch}>
+          <Ionicons name="search" color={colors.WHITE} size={25} />
         </Pressable>
         <Pressable style={styles.mapButton} onPress={handlePressUserLocation}>
           <MaterialIcons name="my-location" color={colors.WHITE} size={25} />

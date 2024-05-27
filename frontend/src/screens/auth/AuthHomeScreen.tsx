@@ -1,10 +1,24 @@
 import React from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
-import {Dimensions, Image, SafeAreaView, StyleSheet, View} from 'react-native';
+import {
+  Dimensions,
+  Image,
+  Platform,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 import {AuthStackParamList} from '@/navigations/stack/AuthStackNavigator';
 import CustomButton from '@/components/common/CustomButton';
-import {authNavigations} from '@/constants';
+import {authNavigations, colors} from '@/constants';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {
+  appleAuth,
+  AppleButton,
+} from '@invertase/react-native-apple-authentication';
 
 type AuthHomeScreenProps = StackScreenProps<
   AuthStackParamList,
@@ -12,6 +26,15 @@ type AuthHomeScreenProps = StackScreenProps<
 >;
 
 function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
+  const hahdlePressAppleLogin = async () => {
+    try {
+      const {identityToken, fullName} = await appleAuth.performRequest({
+        requestedOperation: appleAuth.Operation.LOGIN,
+        requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
+      });
+    } catch (error) {}
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.imageContainer}>
@@ -22,15 +45,31 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
         />
       </View>
       <View style={styles.buttonContainer}>
+        {Platform.OS === 'ios' && (
+          <AppleButton
+            style={styles.appleButton}
+            buttonStyle={AppleButton.Style.BLACK}
+            buttonType={AppleButton.Type.SIGN_IN}
+            cornerRadius={3}
+            onPress={hahdlePressAppleLogin}
+          />
+        )}
         <CustomButton
-          label="로그인하기"
+          label="카카오 로그인하기"
+          onPress={() => navigation.navigate(authNavigations.KAKAO)}
+          style={styles.kakaoButtonContainer}
+          textStyle={styles.kakaoButtonText}
+          icon={
+            <Ionicons name={'chatbubble-sharp'} size={16} color={'#181600'} />
+          }
+        />
+        <CustomButton
+          label="이메일 로그인하기"
           onPress={() => navigation.navigate(authNavigations.LOGIN)}
         />
-        <CustomButton
-          label="회원가입하기"
-          variant="outlined"
-          onPress={() => navigation.navigate(authNavigations.SIGNUP)}
-        />
+        <Pressable onPress={() => navigation.navigate(authNavigations.SIGNUP)}>
+          <Text style={styles.emailText}>이메일로 가입하기</Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );
@@ -55,6 +94,23 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     gap: 10,
+  },
+  kakaoButtonContainer: {
+    backgroundColor: '#FEE503',
+  },
+  kakaoButtonText: {
+    color: '#181600',
+  },
+  emailText: {
+    textDecorationLine: 'underline',
+    fontWeight: '500',
+    padding: 10,
+    color: colors.BLACK,
+  },
+  appleButton: {
+    width: Dimensions.get('screen').width - 60,
+    height: 45,
+    paddingVertical: 25,
   },
 });
 

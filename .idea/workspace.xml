@@ -5,18 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="5.24">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/calendar/CalendarHomeHeaderRight.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/Pagination.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/map/SearchRegionResult.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useDebounce.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useSearchLocation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/auth/KakaoLoginScreen.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/map/SearchLocationScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/post.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/auth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/Calendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/Calendar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/DateBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/DateBox.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/DayOfWeeks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/DayOfWeeks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/EventList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/EventList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/YearSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/YearSelector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/post/postForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/post/postForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/CustomButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/CustomButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/message.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/navigations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/navigations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useAuth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetCalendarPosts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetCalendarPosts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateCreatePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateCreatePost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateDeletePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateDeletePost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateUpdatePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateUpdatePost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useImagePicker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useImagePicker.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/stack/AuthStackNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/AuthStackNavigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/stack/MapStatckNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/MapStatckNavigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/LoginScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/LoginScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/SignupScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/SignupScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/feed/EditPostScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/feed/EditPostScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/feed/FeedFavoriteScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/feed/FeedFavoriteScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/AddPostScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/AddPostScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/calendar/CalendarHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/calendar/CalendarHomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/useLocationStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/useLocationStore.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,8 +104,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
       </set>
     </attachedChunks>
   </component>
@@ -131,7 +149,8 @@
       <workItem from="1716422608154" duration="22317000" />
       <workItem from="1716452330504" duration="2197000" />
       <workItem from="1716509064725" duration="22003000" />
-      <workItem from="1716536845562" duration="3851000" />
+      <workItem from="1716536845562" duration="3883000" />
+      <workItem from="1716768944222" duration="24403000" />
     </task>
     <task id="LOCAL-00001" summary="4.16">
       <option name="closed" value="true" />
@@ -397,7 +416,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716536653851</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="5.24">
+      <option name="closed" value="true" />
+      <created>1716541225048</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1716541225048</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

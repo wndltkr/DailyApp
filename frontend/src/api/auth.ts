@@ -1,6 +1,6 @@
-import axiosInstance from "@/api/axios";
-import {Category, Profile} from "@/types";
-import {getEncryptStorage} from "@/utils";
+import axiosInstance from '@/api/axios';
+import {Category, Profile} from '@/types';
+import {getEncryptStorage} from '@/utils';
 
 type RequestUser = {
   email: string;
@@ -23,6 +23,26 @@ const postLogin = async ({
   password,
 }: RequestUser): Promise<ResponseToken> => {
   const {data} = await axiosInstance.post('/auth/signin', {email, password});
+
+  return data;
+};
+
+const kakaoLogin = async (token: string): Promise<ResponseToken> => {
+  const {data} = await axiosInstance.post('/auth/oauth/kakao', {token});
+
+  return data;
+};
+
+type RequestAppleIdentity = {
+  identityToken: string;
+  appId: string;
+  nickname: string | null;
+};
+
+const appleLogin = async (
+  body: RequestAppleIdentity,
+): Promise<ResponseToken> => {
+  const {data} = await axiosInstance.post('/auth/oauth/apple', body);
 
   return data;
 };
@@ -51,5 +71,13 @@ const logout = async () => {
   await axiosInstance.post('/auth/logout');
 };
 
-export {postSignup, postLogin, getProfile, getAccessToken, logout};
-export type {RequestUser, ResponseToken, ResponseProfile};
+export {
+  postSignup,
+  postLogin,
+  getProfile,
+  getAccessToken,
+  logout,
+  kakaoLogin,
+  appleLogin,
+};
+export type {RequestUser, ResponseToken, ResponseProfile, RequestAppleIdentity};
