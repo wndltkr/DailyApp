@@ -9,7 +9,9 @@ import {
   postLogin,
   postSignup,
   kakaoLogin,
-  ResponseToken, appleLogin,
+  ResponseToken,
+  appleLogin,
+  editProfile,
 } from '@/api/auth';
 import {
   removeEncryptStorage,
@@ -100,15 +102,26 @@ function useGetProfile(queryOptions?: UseQueryCustomOptions<ResponseProfile>) {
   });
 }
 
+function useUpdateProfile(mutationOptions?: UseMutationCustomOptions) {
+  return useMutation({
+    mutationFn: editProfile,
+    onSuccess: newProfile => {
+      queryClient.setQueryData(
+        [queryKeys.AUTH, queryKeys.GET_PROFILE],
+        newProfile,
+      );
+    },
+    ...mutationOptions,
+  });
+}
+
 function useLogout(mutationOptions?: UseMutationCustomOptions) {
   return useMutation({
     mutationFn: logout,
     onSuccess: () => {
       removeHeader('Authorization');
       removeEncryptStorage(storageKeys.REFRESH_TOKEN);
-    },
-    onSettled: () => {
-      queryClient.invalidateQueries({queryKey: [queryKeys.AUTH]});
+      queryClient.resetQueries({queryKey: [queryKeys.AUTH]});
     },
     ...mutationOptions,
   });
@@ -123,17 +136,19 @@ function useAuth() {
   const isLogin = getProfileQuery.isSuccess;
   const loginMutation = useEmailLogin();
   const kakaoLoginMutation = useKakaoLogin();
-  const AppleLoginMutation = useAppleLogin();
+  const appleLoginMutation = useAppleLogin();
   const logoutMutation = useLogout();
+  const profileMutation = useUpdateProfile();
 
   return {
     signupMutation,
     loginMutation,
     kakaoLoginMutation,
-    AppleLoginMutation,
+    appleLoginMutation,
     getProfileQuery,
     isLogin,
     logoutMutation,
+    profileMutation,
   };
 }
 

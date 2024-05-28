@@ -19,6 +19,8 @@ import {
   appleAuth,
   AppleButton,
 } from '@invertase/react-native-apple-authentication';
+import useAuth from '@/hooks/queries/useAuth';
+import Toast from 'react-native-toast-message';
 
 type AuthHomeScreenProps = StackScreenProps<
   AuthStackParamList,
@@ -26,13 +28,31 @@ type AuthHomeScreenProps = StackScreenProps<
 >;
 
 function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
-  const hahdlePressAppleLogin = async () => {
+  const {appleLoginMutation} = useAuth();
+
+  const handlePressAppleLogin = async () => {
     try {
       const {identityToken, fullName} = await appleAuth.performRequest({
         requestedOperation: appleAuth.Operation.LOGIN,
         requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME],
       });
-    } catch (error) {}
+
+      if (identityToken) {
+        appleLoginMutation.mutate({
+          identityToken,
+          appId: '',
+          nickname: fullName?.givenName ?? null,
+        });
+      }
+    } catch (error: any) {
+      if (error.code !== appleAuth.Error.CANCELED) {
+        Toast.show({
+          type: 'error',
+          text1: '애플 로그인이 실패했습니다',
+          text2: '나중에 다시 시도해주세요',
+        });
+      }
+    }
   };
 
   return (
@@ -51,7 +71,7 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
             buttonStyle={AppleButton.Style.BLACK}
             buttonType={AppleButton.Type.SIGN_IN}
             cornerRadius={3}
-            onPress={hahdlePressAppleLogin}
+            onPress={handlePressAppleLogin}
           />
         )}
         <CustomButton
