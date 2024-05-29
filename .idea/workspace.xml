@@ -5,19 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="5.27">
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/setting/SettingHeaderLeft.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/setting/SettingItem.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/SettingStackNavigatior.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/setting/EditProfileScreen.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/screens/setting/SettingHomeScreen.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/setting/EditCategoryHeaderRight.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/setting/EditProfileHeaderRight.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/setting/EditProfileImageOption.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/setting/DeleteAccountScreen.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/setting/EditCategoryScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/message.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/constants/navigations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/navigations.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useAuth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useImagePicker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useImagePicker.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/navigations/drawer/CustomDrawerContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/drawer/CustomDrawerContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/drawer/MainDrawerNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/drawer/MainDrawerNavigator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/stack/SettingStackNavigatior.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/SettingStackNavigatior.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/feed/FeedDetailScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/feed/FeedDetailScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/setting/EditProfileScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/setting/EditProfileScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/setting/SettingHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/setting/SettingHomeScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/utils/validate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/validate.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +138,8 @@
       <workItem from="1716509064725" duration="22003000" />
       <workItem from="1716536845562" duration="3883000" />
       <workItem from="1716768944222" duration="24451000" />
-      <workItem from="1716854660885" duration="14817000" />
+      <workItem from="1716854660885" duration="14868000" />
+      <workItem from="1716941441225" duration="21003000" />
     </task>
     <task id="LOCAL-00001" summary="4.16">
       <option name="closed" value="true" />
@@ -417,7 +421,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716800333357</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="5.27">
+      <option name="closed" value="true" />
+      <created>1716886836943</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1716886836943</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

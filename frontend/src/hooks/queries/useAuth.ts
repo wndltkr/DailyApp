@@ -12,6 +12,8 @@ import {
   ResponseToken,
   appleLogin,
   editProfile,
+  deleteAccount,
+  editCategory,
 } from '@/api/auth';
 import {
   removeEncryptStorage,
@@ -25,6 +27,7 @@ import type {
   UseMutationCustomOptions,
   UseQueryCustomOptions,
 } from '@/types/common';
+import {Category, Profile} from '@/types';
 
 function useSignup(mutationOptions?: UseMutationCustomOptions) {
   return useMutation({
@@ -94,11 +97,38 @@ function useGetRefreshToken() {
   return {isSuccess, isError};
 }
 
-function useGetProfile(queryOptions?: UseQueryCustomOptions<ResponseProfile>) {
+type ResponseSelectProfile = {categories: Category} & Profile;
+
+const transformProfileCategory = (
+  data: ResponseProfile,
+): ResponseSelectProfile => {
+  const {BLUE, GREEN, PURPLE, RED, YELLOW, ...rest} = data;
+  const categories = {BLUE, GREEN, PURPLE, RED, YELLOW};
+
+  return {categories, ...rest};
+};
+
+function useGetProfile(
+  queryOptions?: UseQueryCustomOptions<ResponseProfile, ResponseSelectProfile>,
+) {
   return useQuery({
     queryFn: getProfile,
     queryKey: [queryKeys.AUTH, queryKeys.GET_PROFILE],
+    select: transformProfileCategory,
     ...queryOptions,
+  });
+}
+
+function useMutateCategory(mutationOptions?: UseMutationCustomOptions) {
+  return useMutation({
+    mutationFn: editCategory,
+    onSuccess: newProfile => {
+      queryClient.setQueryData(
+        [queryKeys.AUTH, queryKeys.GET_PROFILE],
+        newProfile,
+      );
+    },
+    ...mutationOptions,
   });
 }
 
@@ -127,6 +157,13 @@ function useLogout(mutationOptions?: UseMutationCustomOptions) {
   });
 }
 
+function useMutateDeleteAccount(mutationOptions?: UseMutationCustomOptions) {
+  return useMutation({
+    mutationFn: deleteAccount,
+    ...mutationOptions,
+  });
+}
+
 function useAuth() {
   const signupMutation = useSignup();
   const refreshTokenQuery = useGetRefreshToken();
@@ -139,6 +176,10 @@ function useAuth() {
   const appleLoginMutation = useAppleLogin();
   const logoutMutation = useLogout();
   const profileMutation = useUpdateProfile();
+  const deleteAccountMutation = useMutateDeleteAccount({
+    onSuccess: () => logoutMutation.mutate(null),
+  });
+  const categoryMutation = useMutateCategory();
 
   return {
     signupMutation,
@@ -149,6 +190,8 @@ function useAuth() {
     isLogin,
     logoutMutation,
     profileMutation,
+    deleteAccountMutation,
+    categoryMutation,
   };
 }
 

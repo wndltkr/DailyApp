@@ -10,11 +10,13 @@ import Toast from 'react-native-toast-message';
 interface UseImagePickerProps {
   initialImages: ImageUri[];
   mode?: 'multiple' | 'single';
+  onSettled?: () => void;
 }
 
 function useImagePicker({
   initialImages = [],
   mode = 'multiple',
+  onSettled,
 }: UseImagePickerProps) {
   const [imageUris, setImageUris] = useState(initialImages);
   const uploadImages = useMutateImages();
@@ -31,6 +33,14 @@ function useImagePicker({
   const deleteImageUri = (uri: string) => {
     const newImageUris = imageUris.filter(image => image.uri !== uri);
     setImageUris(newImageUris);
+  };
+
+  const replaceImageUri = (uris: string[]) => {
+    if (uris.length > 1) {
+      Alert.alert('이미지 개수 초과', '추가 가능한 이미지는 최대 1개입니다.');
+    }
+
+    setImageUris([...uris.map(uri => ({uri}))]);
   };
 
   const changeImageUrisOrder = (fromIndex: number, toIndex: number) => {
@@ -53,7 +63,9 @@ function useImagePicker({
         const formData = getFormDataImages('images', images);
 
         uploadImages.mutate(formData, {
-          onSuccess: data => addImageUris(data),
+          onSuccess: data =>
+            mode == 'multiple' ? addImageUris(data) : replaceImageUri(data),
+          onSettled: () => onSettled && onSettled(),
         });
       })
       .catch(error => {
