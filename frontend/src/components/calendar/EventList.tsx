@@ -1,18 +1,21 @@
-import {CalendarPost} from '@/api';
 import React from 'react';
-import {Pressable, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, View, Pressable, Text} from 'react-native';
 import {CompositeNavigationProp, useNavigation} from '@react-navigation/native';
-import {MainDrawerParamList} from '@/navigations/drawer/MainDrawerNavigator';
-import {DrawerNavigationProp} from '@react-navigation/drawer';
-import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
-import {FeedTabParamList} from '@/navigations/tab/FeedTabNavigator';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import type {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
+import type {DrawerNavigationProp} from '@react-navigation/drawer';
+
+import type {FeedTabParamList} from '@/navigations/tab/FeedTabNavigator';
+import type {MainDrawerParamList} from '@/navigations/drawer/MainDrawerNavigator';
 import {
   colors,
   feedNavigations,
   feedTabNavigations,
   mainNavigations,
 } from '@/constants';
+import type {CalendarPost} from '@/api';
+import {ThemeMode} from '@/types';
+import useThemeStore from '@/store/useThemeStore';
 
 interface EventListProps {
   posts: CalendarPost[];
@@ -24,6 +27,8 @@ type Navigation = CompositeNavigationProp<
 >;
 
 function EventList({posts}: EventListProps) {
+  const {theme} = useThemeStore();
+  const styles = styling(theme);
   const navigation = useNavigation<Navigation>();
   const insets = useSafeAreaInsets();
 
@@ -63,36 +68,37 @@ function EventList({posts}: EventListProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.WHITE,
-    padding: 20,
-  },
-  innerContainer: {
-    gap: 20,
-  },
-  itemContainer: {
-    flexDirection: 'row',
-  },
-  itemHeader: {
-    backgroundColor: colors.PINK_700,
-    width: 6,
-    height: 50,
-    marginRight: 8,
-    borderRadius: 20,
-  },
-  infoContainer: {
-    justifyContent: 'space-evenly',
-  },
-  addressText: {
-    color: colors.GRAY_500,
-    fontSize: 13,
-  },
-  titleText: {
-    color: colors.BLACK,
-    fontSize: 16,
-    fontWeight: '600',
-  },
-});
+const styling = (theme: ThemeMode) =>
+  StyleSheet.create({
+    container: {
+      backgroundColor: colors[theme].WHITE,
+      padding: 20,
+    },
+    innerContainer: {
+      gap: 20,
+    },
+    itemContainer: {
+      flexDirection: 'row',
+    },
+    itemHeader: {
+      backgroundColor: colors[theme].PINK_700,
+      width: 6,
+      height: 50,
+      marginRight: 8,
+      borderRadius: 20,
+    },
+    infoContainer: {
+      justifyContent: 'space-evenly',
+    },
+    addressText: {
+      color: colors[theme].GRAY_500,
+      fontSize: 13,
+    },
+    titleText: {
+      color: colors[theme].BLACK,
+      fontSize: 16,
+      fontWeight: '600',
+    },
+  });
 
 export default EventList;

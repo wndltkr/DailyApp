@@ -10,17 +10,20 @@ import {
   Text,
   View,
 } from 'react-native';
-
-import {AuthStackParamList} from '@/navigations/stack/AuthStackNavigator';
-import CustomButton from '@/components/common/CustomButton';
-import {authNavigations, colors} from '@/constants';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {
   appleAuth,
   AppleButton,
+  AppleError,
 } from '@invertase/react-native-apple-authentication';
+
+import {AuthStackParamList} from '@/navigations/stack/AuthStackNavigator';
+import CustomButton from '@/components/common/CustomButton';
+import {authNavigations, colors} from '@/constants';
 import useAuth from '@/hooks/queries/useAuth';
 import Toast from 'react-native-toast-message';
+import useThemeStore from '@/store/useThemeStore';
+import {ThemeMode} from '@/types';
 
 type AuthHomeScreenProps = StackScreenProps<
   AuthStackParamList,
@@ -28,6 +31,8 @@ type AuthHomeScreenProps = StackScreenProps<
 >;
 
 function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
+  const {theme} = useThemeStore();
+  const styles = styling(theme);
   const {appleLoginMutation} = useAuth();
 
   const handlePressAppleLogin = async () => {
@@ -40,7 +45,7 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
       if (identityToken) {
         appleLoginMutation.mutate({
           identityToken,
-          appId: '',
+          appId: 'org.reactjs.native.example.MatzipApp',
           nickname: fullName?.givenName ?? null,
         });
       }
@@ -48,8 +53,8 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
       if (error.code !== appleAuth.Error.CANCELED) {
         Toast.show({
           type: 'error',
-          text1: '애플 로그인이 실패했습니다',
-          text2: '나중에 다시 시도해주세요',
+          text1: '애플 로그인이 실패했습니다.',
+          text2: '나중에 다시 시도해주세요.',
         });
       }
     }
@@ -61,15 +66,16 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
         <Image
           resizeMode="contain"
           style={styles.image}
-          source={require('@/assets/image.png')}
+          source={require('@/assets/matzip.png')}
         />
       </View>
+
       <View style={styles.buttonContainer}>
         {Platform.OS === 'ios' && (
           <AppleButton
-            style={styles.appleButton}
             buttonStyle={AppleButton.Style.BLACK}
             buttonType={AppleButton.Type.SIGN_IN}
+            style={styles.appleButton}
             cornerRadius={3}
             onPress={handlePressAppleLogin}
           />
@@ -80,7 +86,7 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
           style={styles.kakaoButtonContainer}
           textStyle={styles.kakaoButtonText}
           icon={
-            <Ionicons name={'chatbubble-sharp'} size={16} color={'#181600'} />
+            <Ionicons name={'chatbubble-sharp'} color={'#181500'} size={16} />
           }
         />
         <CustomButton
@@ -95,43 +101,44 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    marginHorizontal: 30,
-    marginVertical: 30,
-  },
-  imageContainer: {
-    flex: 1.5,
-    width: Dimensions.get('screen').width / 2,
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
-  buttonContainer: {
-    flex: 1,
-    alignItems: 'center',
-    gap: 10,
-  },
-  kakaoButtonContainer: {
-    backgroundColor: '#FEE503',
-  },
-  kakaoButtonText: {
-    color: '#181600',
-  },
-  emailText: {
-    textDecorationLine: 'underline',
-    fontWeight: '500',
-    padding: 10,
-    color: colors.BLACK,
-  },
-  appleButton: {
-    width: Dimensions.get('screen').width - 60,
-    height: 45,
-    paddingVertical: 25,
-  },
-});
+const styling = (theme: ThemeMode) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: 'center',
+      marginHorizontal: 30,
+      marginVertical: 30,
+    },
+    imageContainer: {
+      flex: 1.5,
+      width: Dimensions.get('screen').width / 2,
+    },
+    image: {
+      width: '100%',
+      height: '100%',
+    },
+    buttonContainer: {
+      flex: 1,
+      alignItems: 'center',
+      gap: 10,
+    },
+    kakaoButtonContainer: {
+      backgroundColor: '#FEE503',
+    },
+    kakaoButtonText: {
+      color: '#181600',
+    },
+    emailText: {
+      textDecorationLine: 'underline',
+      fontWeight: '500',
+      padding: 10,
+      color: colors[theme].BLACK,
+    },
+    appleButton: {
+      width: Dimensions.get('screen').width - 60,
+      height: 45,
+      paddingVertical: 25,
+    },
+  });
 
 export default AuthHomeScreen;

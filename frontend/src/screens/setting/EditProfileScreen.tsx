@@ -1,3 +1,17 @@
+import InputField from '@/components/common/InputField';
+import EditProfileHeaderRight from '@/components/setting/EditProfileHeaderRight';
+import EditProfileImageOption from '@/components/setting/EditProfileImageOption';
+import {colors, errorMessages, settingNavigations} from '@/constants';
+import useAuth from '@/hooks/queries/useAuth';
+import useForm from '@/hooks/useForm';
+import useImagePicker from '@/hooks/useImagePicker';
+import useModal from '@/hooks/useModal';
+
+import useThemeStore from '@/store/useThemeStore';
+import {ThemeMode} from '@/types';
+import {validateEditProfile} from '@/utils';
+import {StackScreenProps} from '@react-navigation/stack';
+import React, {useEffect} from 'react';
 import {
   Image,
   Keyboard,
@@ -7,25 +21,15 @@ import {
   Text,
   View,
 } from 'react-native';
-import React, {useEffect} from 'react';
-import InputField from '@/components/common/inputField';
-import useForm from '@/hooks/useForm';
-import useAuth from '@/hooks/queries/useAuth';
-import {validateEditProfile} from '@/utils';
-import useImagePicker from '@/hooks/useImagePicker';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import {colors, errorMessages, settingNavigations} from '@/constants';
-import EditProfileImageOption from '@/components/setting/EditProfileImageOption';
-import useModal from '@/hooks/useModal';
-import {StackScreenProps} from '@react-navigation/stack';
-import {SettingStackParamList} from '@/navigations/stack/SettingStackNavigatior';
-import EditProfileHeaderRight from '@/components/setting/EditProfileHeaderRight';
 import Toast from 'react-native-toast-message';
-import Octicons from 'react-native-vector-icons/Octicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {SettingStackParamList} from '@/navigations/stack/SettingStackNavigatior';
 
 type EditProfileScreenProps = StackScreenProps<SettingStackParamList>;
 
 function EditProfileScreen({navigation}: EditProfileScreenProps) {
+  const {theme} = useThemeStore();
+  const styles = styling(theme);
   const {getProfileQuery, profileMutation} = useAuth();
   const {nickname, imageUri, kakaoImageUri} = getProfileQuery.data || {};
 
@@ -35,7 +39,6 @@ function EditProfileScreen({navigation}: EditProfileScreenProps) {
     mode: 'single',
     onSettled: imageOption.hide,
   });
-
   const editProfile = useForm({
     initialValue: {nickname: nickname ?? ''},
     validate: validateEditProfile,
@@ -56,7 +59,7 @@ function EditProfileScreen({navigation}: EditProfileScreenProps) {
         onSuccess: () =>
           Toast.show({
             type: 'success',
-            text1: '프로필이 변경되었습니다',
+            text1: '프로필이 변경되었습니다.',
             position: 'bottom',
           }),
         onError: error =>
@@ -82,9 +85,13 @@ function EditProfileScreen({navigation}: EditProfileScreenProps) {
           style={[styles.imageContainer, styles.emptyImageContainer]}
           onPress={handlePressImage}>
           {imagePicker.imageUris.length === 0 && !kakaoImageUri && (
-            <Ionicons name="camera-outline" size={30} color={colors.GRAY_500} />
+            <Ionicons
+              name="camera-outline"
+              size={30}
+              color={colors[theme].GRAY_500}
+            />
           )}
-          {imagePicker.imageUris.length === 0 && !kakaoImageUri && (
+          {imagePicker.imageUris.length === 0 && kakaoImageUri && (
             <>
               <Image
                 source={{
@@ -116,16 +123,21 @@ function EditProfileScreen({navigation}: EditProfileScreenProps) {
           )}
         </Pressable>
       </View>
+
       <InputField
         {...editProfile.getTextInputProps('nickname')}
         error={editProfile.errors.nickname}
         touched={editProfile.touched.nickname}
-        placeholder="닉네임을 입력해주세요"
+        placeholder="닉네임을 입력해주세요."
       />
       <Pressable
         style={styles.deleteAccountContainer}
         onPress={() => navigation.navigate(settingNavigations.DELETE_ACCOUNT)}>
-        <Octicons name="remove-circle-sharp" size={18} color={colors.RED_500} />
+        <Ionicons
+          name="remove-circle-sharp"
+          size={18}
+          color={colors[theme].RED_500}
+        />
         <Text style={styles.deleteAccountText}>회원탈퇴</Text>
       </Pressable>
       <EditProfileImageOption
@@ -137,49 +149,50 @@ function EditProfileScreen({navigation}: EditProfileScreenProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-  profileContainer: {
-    alignItems: 'center',
-    marginTop: 20,
-    marginBottom: 40,
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 50,
-  },
-  imageContainer: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-  },
-  emptyImageContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderColor: colors.GRAY_200,
-    borderRadius: 50,
-    borderWidth: 1,
-  },
-  deleteAccountContainer: {
-    position: 'absolute',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 5,
-    right: 20,
-    bottom: 70,
-    backgroundColor: colors.GRAY_100,
-    borderRadius: 10,
-    padding: 10,
-  },
-  deleteAccountText: {
-    color: colors.RED_500,
-    fontSize: 15,
-  },
-});
+const styling = (theme: ThemeMode) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+      padding: 20,
+    },
+    profileContainer: {
+      alignItems: 'center',
+      marginTop: 20,
+      marginBottom: 40,
+    },
+    image: {
+      width: '100%',
+      height: '100%',
+      borderRadius: 50,
+    },
+    imageContainer: {
+      width: 100,
+      height: 100,
+      borderRadius: 50,
+    },
+    emptyImageContainer: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderColor: colors[theme].GRAY_200,
+      borderRadius: 50,
+      borderWidth: 1,
+    },
+    deleteAccountContainer: {
+      position: 'absolute',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 5,
+      right: 20,
+      bottom: 70,
+      backgroundColor: colors[theme].GRAY_100,
+      borderRadius: 10,
+      padding: 10,
+    },
+    deleteAccountText: {
+      color: colors[theme].RED_500,
+      fontSize: 15,
+    },
+  });
 
 export default EditProfileScreen;

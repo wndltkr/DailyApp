@@ -20,8 +20,7 @@ function EditProfileImageOption({
             앨범에서 사진선택
           </CompoundOption.Button>
         </CompoundOption.Container>
-      </CompoundOption.Background>
-      <CompoundOption.Background>
+
         <CompoundOption.Container>
           <CompoundOption.Button onPress={hideOption}>
             취소

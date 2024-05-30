@@ -3,17 +3,17 @@ import {MutationFunction, useMutation, useQuery} from '@tanstack/react-query';
 
 import {
   ResponseProfile,
+  ResponseToken,
+  appleLogin,
+  deleteAccount,
+  editCategory,
+  editProfile,
   getAccessToken,
   getProfile,
+  kakaoLogin,
   logout,
   postLogin,
   postSignup,
-  kakaoLogin,
-  ResponseToken,
-  appleLogin,
-  editProfile,
-  deleteAccount,
-  editCategory,
 } from '@/api/auth';
 import {
   removeEncryptStorage,
@@ -58,8 +58,8 @@ function useLogin<T>(
   });
 }
 
-function useEmailLogin(mutaionOptions?: UseMutationCustomOptions) {
-  return useLogin(postLogin, mutaionOptions);
+function useEmailLogin(mutationOptions?: UseMutationCustomOptions) {
+  return useLogin(postLogin, mutationOptions);
 }
 
 function useKakaoLogin(mutationOptions?: UseMutationCustomOptions) {
@@ -184,11 +184,11 @@ function useAuth() {
   return {
     signupMutation,
     loginMutation,
-    kakaoLoginMutation,
-    appleLoginMutation,
     getProfileQuery,
     isLogin,
     logoutMutation,
+    kakaoLoginMutation,
+    appleLoginMutation,
     profileMutation,
     deleteAccountMutation,
     categoryMutation,

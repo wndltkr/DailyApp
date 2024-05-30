@@ -57,8 +57,9 @@ function validateEditProfile(values: {nickname: string}) {
   const errors = {
     nickname: '',
   };
+
   if (isBlank(values.nickname)) {
-    errors.nickname = '닉네임을 입력해주세요';
+    errors.nickname = '닉네임을 입력해주세요.';
   }
 
   return errors;
@@ -72,6 +73,8 @@ function validateCategory(values: Category) {
     BLUE: '',
     PURPLE: '',
   };
+
+  //
 
   return errors;
 }

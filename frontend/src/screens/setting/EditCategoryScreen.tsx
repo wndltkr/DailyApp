@@ -1,3 +1,14 @@
+import InputField from '@/components/common/InputField';
+import EditCategoryHeaderRight from '@/components/setting/EditCategoryHeaderRight';
+import {colorHex, colors, errorMessages} from '@/constants';
+import useAuth from '@/hooks/queries/useAuth';
+import useForm from '@/hooks/useForm';
+
+import useThemeStore from '@/store/useThemeStore';
+import {MarkerColor, ThemeMode} from '@/types';
+import {validateCategory} from '@/utils';
+import {StackScreenProps} from '@react-navigation/stack';
+import React, {useEffect, useRef} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -6,17 +17,8 @@ import {
   TextInput,
   View,
 } from 'react-native';
-import React, {useEffect, useRef} from 'react';
-import useAuth from '@/hooks/queries/useAuth';
-import {colorHex, colors, errorMessages} from '@/constants';
-import {MarkerColor} from '@/types';
-import InputField from '@/components/common/inputField';
-import useForm from '@/hooks/useForm';
-import {validateCategory} from '@/utils';
-import {StackScreenProps} from '@react-navigation/stack';
-import {SettingStackParamList} from '@/navigations/stack/SettingStackNavigatior';
-import EditCategoryHeaderRight from '@/components/setting/EditCategoryHeaderRight';
 import Toast from 'react-native-toast-message';
+import {SettingStackParamList} from '@/navigations/stack/SettingStackNavigatior';
 
 const categoryList: MarkerColor[] = [
   'RED',
@@ -27,16 +29,18 @@ const categoryList: MarkerColor[] = [
 ];
 
 const categoryPlaceholderList = [
-  '카테고리1',
-  '카테고리2',
-  '카테고리3',
-  '카테고리4',
-  '카테고리5',
+  'ex) 식당',
+  'ex) 카페',
+  'ex) 병원',
+  'ex) 숙소',
+  'ex) 여행',
 ];
 
 type EditCategoryScreenProps = StackScreenProps<SettingStackParamList>;
 
 function EditCategoryScreen({navigation}: EditCategoryScreenProps) {
+  const {theme} = useThemeStore();
+  const styles = styling(theme);
   const refArray = useRef<(TextInput | null)[]>([]);
   const {getProfileQuery, categoryMutation} = useAuth();
   const {categories} = getProfileQuery.data || {};
@@ -56,7 +60,7 @@ function EditCategoryScreen({navigation}: EditCategoryScreenProps) {
       onSuccess: () =>
         Toast.show({
           type: 'success',
-          text1: '저장되었습니다',
+          text1: '저장되었습니다.',
           position: 'bottom',
         }),
       onError: error =>
@@ -81,12 +85,13 @@ function EditCategoryScreen({navigation}: EditCategoryScreenProps) {
         scrollIndicatorInsets={{right: 1}}>
         <View style={styles.infoContainer}>
           <Text style={styles.infoText}>
-            마커 색상의 카테고리를 설정해주세요
+            마커 색상의 카테고리를 설정해주세요.
           </Text>
           <Text style={styles.infoText}>
-            마커 필터링, 범례 표시에 사용할 수 있습니다
+            마커 필터링, 범례 표시에 사용할 수 있어요.
           </Text>
         </View>
+
         <View style={styles.formContainer}>
           {categoryList.map((color, i) => {
             return (
@@ -119,47 +124,48 @@ function EditCategoryScreen({navigation}: EditCategoryScreenProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  contentContainer: {
-    flex: 1,
-    padding: 20,
-    marginBottom: 10,
-  },
-  infoContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 30,
-    borderWidth: 1,
-    borderColor: colors.PINK_700,
-    borderRadius: 3,
-    padding: 10,
-    gap: 10,
-  },
-  infoText: {
-    color: colors.PINK_700,
-    fontSize: 15,
-    fontWeight: '600',
-  },
-  formContainer: {
-    gap: 15,
-  },
-  categoryContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 3,
-  },
-  category: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.PINK_400,
-  },
-  inputContainer: {
-    flex: 1,
-  },
-});
+const styling = (theme: ThemeMode) =>
+  StyleSheet.create({
+    container: {
+      flex: 1,
+    },
+    contentContainer: {
+      flex: 1,
+      padding: 20,
+      marginBottom: 10,
+    },
+    infoContainer: {
+      alignItems: 'center',
+      marginTop: 10,
+      marginBottom: 30,
+      borderWidth: 1,
+      borderColor: colors[theme].PINK_700,
+      borderRadius: 3,
+      padding: 10,
+      gap: 10,
+    },
+    infoText: {
+      color: colors[theme].PINK_700,
+      fontSize: 15,
+      fontWeight: '600',
+    },
+    formContainer: {
+      gap: 15,
+    },
+    categoryContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 20,
+    },
+    category: {
+      width: 40,
+      height: 40,
+      borderRadius: 20,
+      backgroundColor: colors[theme].PINK_400,
+    },
+    inputContainer: {
+      flex: 1,
+    },
+  });
 
 export default EditCategoryScreen;
