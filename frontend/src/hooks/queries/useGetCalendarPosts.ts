@@ -14,6 +14,7 @@ function useGetCalendarPosts(
     queryKey: [queryKeys.POST, queryKeys.GET_CALENDAR_POSTS, year, month],
     placeholderData: keepPreviousData,
     ...queryOptions,
+    throwOnError: error => Number(error.response?.status) >= 500,
   });
 }
 

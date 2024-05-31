@@ -27,6 +27,7 @@ function useGetInfiniteSearchPosts(
       const lastPost = lastPage[lastPage.length - 1];
       return lastPost ? allPages.length + 1 : undefined;
     },
+    throwOnError: error => Number(error.response?.status) >= 500,
     ...queryOptions,
   });
 }

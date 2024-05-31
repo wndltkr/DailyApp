@@ -4,77 +4,38 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="5.29">
-      <change afterPath="$PROJECT_DIR$/frontend/ios/DailyApp/DailyApp.entitlements" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/setting/DarkModeOption.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useThemeStorage.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/store/useThemeStore.ts" afterDir="false" />
+    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="5.30">
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/Loader.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/common/RetryErrorBoundary.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/map/MapLegend.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/map/MarkerFilterOption.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/setting/MapLegendOption.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useLegendStorage.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/hooks/useMarkerFilter.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/store/useLegendStore.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/DailyApp.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ios/DailyApp.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/axios.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/axios.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/image.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/marker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/marker.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/api/queryClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/api/queryClient.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/Calendar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/Calendar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/DateBox.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/DateBox.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/DayOfWeeks.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/DayOfWeeks.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/EventList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/EventList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/calendar/YearSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/calendar/YearSelector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/common/CompoundOption.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/CompoundOption.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/CustomButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/CustomButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/CustomMarker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/CustomMarker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/HeaderButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/HeaderButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/ImageCarousel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/ImageCarousel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/Pagination.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/Pagination.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/PreviewImageList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/PreviewImageList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/SearchInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/SearchInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/common/inputField.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/common/inputField.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/feed/FeedFavoriteList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/feed/FeedFavoriteList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/feed/FeedHomeHeaderLeft.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/feed/FeedHomeHeaderLeft.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/feed/FeedItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/feed/FeedItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/feed/FeedList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/feed/FeedList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/feed/FeedSearchList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/feed/FeedSearchList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/map/MarkerModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/map/MarkerModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/map/SearchRegionResult.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/map/SearchRegionResult.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/post/DatePickerOption.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/post/DatePickerOption.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/post/ImageInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/post/ImageInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/post/MarkerSelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/post/MarkerSelector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/post/ScoreInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/post/ScoreInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/post/postForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/post/postForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/setting/EditProfileImageOption.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/setting/EditProfileImageOption.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/setting/SettingHeaderLeft.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/setting/SettingHeaderLeft.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/setting/SettingItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/setting/SettingItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/constants/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/colors.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/constants/keys.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/keys.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/constants/numbers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/numbers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useAuth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useAuth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/useAppState.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/useAppState.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/drawer/CustomDrawerContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/drawer/CustomDrawerContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/drawer/MainDrawerNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/drawer/MainDrawerNavigator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/stack/AuthStackNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/AuthStackNavigator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/stack/FeedStackNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/FeedStackNavigator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/stack/MapStatckNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/MapStatckNavigator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/stack/SettingStackNavigatior.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/SettingStackNavigatior.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/tab/FeedTabNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/tab/FeedTabNavigator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/KakaoLoginScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/KakaoLoginScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/LoginScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/LoginScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/SignupScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/SignupScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/calendar/CalendarHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/calendar/CalendarHomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/feed/FeedDetailScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/feed/FeedDetailScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetCalendarPosts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetCalendarPosts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetInfiniteFavoritePosts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetInfiniteFavoritePosts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetInfinitePosts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetInfinitePosts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetInfiniteSearchPosts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetInfiniteSearchPosts.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetMarkers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetMarkers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetPost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useGetPost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateCreatePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateCreatePost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateDeletePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateDeletePost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateFavoritePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateFavoritePost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateImages.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateImages.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateUpdatePost.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/hooks/queries/useMutateUpdatePost.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/navigations/root/RootNavigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/navigations/root/RootNavigator.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/feed/FeedFavoriteScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/feed/FeedFavoriteScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/feed/FeedSearchScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/feed/FeedSearchScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/feed/FeedHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/feed/FeedHomeScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/map/MapHomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/setting/DeleteAccountScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/setting/DeleteAccountScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/setting/EditCategoryScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/setting/EditCategoryScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/setting/EditProfileScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/setting/EditProfileScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/screens/setting/SettingHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/setting/SettingHomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/style/mapStyle.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/style/mapStyle.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/types/common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/types/common.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/utils/validate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/utils/validate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,8 +48,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -194,7 +155,8 @@
       <workItem from="1716854660885" duration="14868000" />
       <workItem from="1716941441225" duration="23928000" />
       <workItem from="1716972236565" duration="981000" />
-      <workItem from="1717027844954" duration="8120000" />
+      <workItem from="1717027844954" duration="22799000" />
+      <workItem from="1717114377902" duration="24928000" />
     </task>
     <task id="LOCAL-00001" summary="4.16">
       <option name="closed" value="true" />
@@ -492,7 +454,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716969158841</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="5.30">
+      <option name="closed" value="true" />
+      <created>1717036510734</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1717036510734</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,6 +496,7 @@
     <MESSAGE value="5.24" />
     <MESSAGE value="5.27" />
     <MESSAGE value="5.29" />
-    <option name="LAST_COMMIT_MESSAGE" value="5.29" />
+    <MESSAGE value="5.30" />
+    <option name="LAST_COMMIT_MESSAGE" value="5.30" />
   </component>
 </project>

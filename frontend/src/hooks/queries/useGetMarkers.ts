@@ -8,6 +8,7 @@ function useGetMarkers(queryOptions?: UseQueryCustomOptions<Marker[]>) {
   return useQuery({
     queryFn: getMarkers,
     queryKey: [queryKeys.MARKER, queryKeys.GET_MARKERS],
+    throwOnError: error => Number(error.response?.status) >= 500,
     ...queryOptions,
   });
 }

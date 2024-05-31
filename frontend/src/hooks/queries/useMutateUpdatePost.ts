@@ -28,6 +28,7 @@ function useMutateUpdatePost(mutationOptions?: UseMutationCustomOptions) {
         ],
       });
     },
+    throwOnError: error => Number(error.response?.status) >= 500,
     ...mutationOptions,
   });
 }
