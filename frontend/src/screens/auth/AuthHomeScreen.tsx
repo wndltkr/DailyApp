@@ -44,7 +44,7 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
       if (identityToken) {
         appleLoginMutation.mutate({
           identityToken,
-          appId: 'org.reactjs.native.example.MatzipApp',
+          appId: 'org.reactjs.native.example.DailyApp',
           nickname: fullName?.givenName ?? null,
         });
       }
@@ -65,7 +65,7 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
         <FastImage
           resizeMode="contain"
           style={styles.image}
-          source={require('@/assets/matzip.png')}
+          source={require('@/assets/image.png')}
         />
       </View>
 

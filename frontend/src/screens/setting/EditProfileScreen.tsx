@@ -1,4 +1,4 @@
-import InputField from '@/components/common/InputField';
+
 import EditProfileHeaderRight from '@/components/setting/EditProfileHeaderRight';
 import EditProfileImageOption from '@/components/setting/EditProfileImageOption';
 import {colors, errorMessages, settingNavigations} from '@/constants';
@@ -24,6 +24,7 @@ import {
 import Toast from 'react-native-toast-message';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {SettingStackParamList} from '@/navigations/stack/SettingStackNavigatior';
+import InputField from "@/components/common/inputField";
 
 type EditProfileScreenProps = StackScreenProps<SettingStackParamList>;
 
