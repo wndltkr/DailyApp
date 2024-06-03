@@ -12,7 +12,6 @@ function useMutateCreatePost(mutationOptions?: UseMutationCustomOptions) {
       queryClient.invalidateQueries({
         queryKey: [queryKeys.POST, queryKeys.GET_POSTS],
       });
-
       queryClient.invalidateQueries({
         queryKey: [
           queryKeys.POST,
@@ -21,7 +20,6 @@ function useMutateCreatePost(mutationOptions?: UseMutationCustomOptions) {
           new Date(newPost.date).getMonth() + 1,
         ],
       });
-
       queryClient.setQueryData<Marker[]>(
         [queryKeys.MARKER, queryKeys.GET_MARKERS],
         existingMarkers => {
@@ -39,7 +37,6 @@ function useMutateCreatePost(mutationOptions?: UseMutationCustomOptions) {
         },
       );
     },
-    throwOnError: error => Number(error.response?.status) >= 500,
     ...mutationOptions,
   });
 }

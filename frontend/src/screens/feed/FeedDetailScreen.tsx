@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import {
   Dimensions,
-  Image,
   Platform,
   Pressable,
   SafeAreaView,
@@ -39,6 +38,7 @@ import useMutateFavoritePost from '@/hooks/queries/useMutateFavoritePost';
 import useAuth from '@/hooks/queries/useAuth';
 import {ThemeMode} from '@/types';
 import useThemeStore from '@/store/useThemeStore';
+import FastImage from "react-native-fast-image";
 
 type FeedDetailScreenProps = CompositeScreenProps<
   StackScreenProps<FeedStackParamList, typeof feedNavigations.FEED_DETAIL>,
@@ -113,7 +113,7 @@ function FeedDetailScreen({route, navigation}: FeedDetailScreenProps) {
 
         <View style={styles.imageContainer}>
           {post.images.length > 0 && (
-            <Image
+            <FastImage
               style={styles.image}
               source={{
                 uri: `${
@@ -122,7 +122,7 @@ function FeedDetailScreen({route, navigation}: FeedDetailScreenProps) {
                     : 'http://10.0.2.2:3030/'
                 }${post.images[0].uri}`,
               }}
-              resizeMode="cover"
+              resizeMode={FastImage.resizeMode.cover}
             />
           )}
           {post.images.length === 0 && (

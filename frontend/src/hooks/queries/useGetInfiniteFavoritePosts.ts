@@ -30,6 +30,7 @@ function useGetInfiniteFavoritePosts(
       const lastPost = lastPage[lastPage.length - 1];
       return lastPost ? allPages.length + 1 : undefined;
     },
+
     ...queryOptions,
   });
 }

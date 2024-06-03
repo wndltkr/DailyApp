@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Dimensions,
-  Image,
   Modal,
   Platform,
   Pressable,
@@ -29,6 +28,7 @@ import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 import {FeedTabParamList} from '@/navigations/tab/FeedTabNavigator';
 import {ThemeMode} from '@/types';
 import useThemeStore from '@/store/useThemeStore';
+import FastImage from 'react-native-fast-image';
 
 interface MarkerModalProps {
   markerId: number | null;
@@ -74,7 +74,7 @@ function MarkerModal({markerId, isVisible, hide}: MarkerModalProps) {
             <View style={styles.cardAlign}>
               {post.images.length > 0 && (
                 <View style={styles.imageContainer}>
-                  <Image
+                  <FastImage
                     style={styles.image}
                     source={{
                       uri: `${
@@ -83,7 +83,7 @@ function MarkerModal({markerId, isVisible, hide}: MarkerModalProps) {
                           : 'http://10.0.2.2:3030/'
                       }${post.images[0]?.uri}`,
                     }}
-                    resizeMode="cover"
+                    resizeMode={FastImage.resizeMode.cover}
                   />
                 </View>
               )}

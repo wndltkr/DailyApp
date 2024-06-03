@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import {
   Dimensions,
-  Image,
+  FlatList,
   NativeScrollEvent,
   NativeSyntheticEvent,
   Platform,
   Pressable,
-  FlatList,
   StyleSheet,
   View,
 } from 'react-native';
@@ -17,6 +16,7 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import {colors} from '@/constants';
 import type {ImageUri, ThemeMode} from '@/types';
 import useThemeStore from '@/store/useThemeStore';
+import FastImage from 'react-native-fast-image';
 
 interface ImageCarouselProps {
   images: ImageUri[];
@@ -51,7 +51,7 @@ function ImageCarousel({images, pressedIndex = 0}: ImageCarouselProps) {
         data={images}
         renderItem={({item}) => (
           <View style={{width: deviceWidth}}>
-            <Image
+            <FastImage
               style={styles.image}
               source={{
                 uri: `${
@@ -60,7 +60,7 @@ function ImageCarousel({images, pressedIndex = 0}: ImageCarouselProps) {
                     : 'http://10.0.2.2:3030/'
                 }${item.uri}`,
               }}
-              resizeMode="contain"
+              resizeMode={FastImage.resizeMode.contain}
             />
           </View>
         )}

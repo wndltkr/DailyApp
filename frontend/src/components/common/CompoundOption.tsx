@@ -11,11 +11,11 @@ import {
   View,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {colors} from '@/constants';
 import useThemeStore from '@/store/useThemeStore';
 import {ThemeMode} from '@/types';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 interface OptionContextValue {
   onClickOutSide?: (event: GestureResponderEvent) => void;
@@ -146,11 +146,11 @@ function CheckBox({
 
   return (
     <Pressable
-      {...props}
       style={({pressed}) => [
         pressed && styles.optionButtonPressed,
         styles.checkBoxContainer,
-      ]}>
+      ]}
+      {...props}>
       <Ionicons
         name={`checkmark-circle${isChecked ? '' : '-outline'}`}
         size={22}
@@ -164,12 +164,13 @@ function CheckBox({
 
 interface FilterProps extends PressableProps {
   children: ReactNode;
-  isSelected: boolean;
+  isSelected?: boolean;
 }
 
 function Filter({children, isSelected, ...props}: FilterProps) {
   const {theme} = useThemeStore();
   const styles = styling(theme);
+
   return (
     <Pressable style={styles.filterContainer} {...props}>
       <Text
@@ -255,7 +256,7 @@ const styling = (theme: ThemeMode) =>
       flexDirection: 'row',
       alignItems: 'center',
       padding: 10,
-      pag: 5,
+      gap: 5,
     },
     filterText: {
       color: colors[theme].GRAY_300,

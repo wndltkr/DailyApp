@@ -1,10 +1,11 @@
-import {CompoundOption} from '@/components/common/CompoundOption';
 import React, {useState} from 'react';
-import {MarkerColor} from '@/types';
-import useAuth from '@/hooks/queries/useAuth';
 import {StyleSheet, View} from 'react-native';
+
+import useAuth from '@/hooks/queries/useAuth';
 import {colorHex} from '@/constants';
-import useMarkerFilter from '@/hooks/useMarkerFilter';
+import {MarkerColor} from '@/types';
+import {CompoundOption} from '../common/CompoundOption';
+import useMarkerFilterStorage from '@/hooks/useMarkerFilterStorage';
 
 interface MarkerFilterOptionProps {
   isVisible: boolean;
@@ -19,11 +20,13 @@ const categoryList: MarkerColor[] = [
   'PURPLE',
 ];
 
+const scoreList = ['1', '2', '3', '4', '5'];
+
 function MarkerFilterOption({isVisible, hideOption}: MarkerFilterOptionProps) {
-  const [filterCondition, setFilterCondition] = useState('색상');
   const {getProfileQuery} = useAuth();
   const {categories} = getProfileQuery.data || {};
-  const markerFilter = useMarkerFilter();
+  const [filterCondition, setFilterCondition] = useState('색상');
+  const markerFilter = useMarkerFilterStorage();
 
   const handleCondition = (condition: string) => {
     setFilterCondition(condition);
@@ -31,16 +34,20 @@ function MarkerFilterOption({isVisible, hideOption}: MarkerFilterOptionProps) {
 
   const handleFilter = (name: string) => {
     markerFilter.set({
-      ...markerFilter.filterItems,
-      [name]: !markerFilter.filterItems[name],
+      ...markerFilter.items,
+      [name]: !markerFilter.items[name],
     });
   };
 
   return (
-    <CompoundOption isVisible={isVisible} hideOption={hideOption}>
+    <CompoundOption
+      isVisible={isVisible}
+      hideOption={hideOption}
+      animationType="fade">
       <CompoundOption.Background>
         <CompoundOption.Container>
           <CompoundOption.Title>마커 필터링</CompoundOption.Title>
+
           <CompoundOption.Divider />
           <View style={styles.filterContainer}>
             {['색상', '평점'].map(condition => (
@@ -53,12 +60,13 @@ function MarkerFilterOption({isVisible, hideOption}: MarkerFilterOptionProps) {
             ))}
           </View>
           <CompoundOption.Divider />
+
           {filterCondition === '색상' && (
             <>
               {categoryList.map(color => (
                 <CompoundOption.CheckBox
                   key={color}
-                  isChecked={markerFilter.filterItems[color]}
+                  isChecked={markerFilter.items[color]}
                   onPress={() => handleFilter(color)}
                   icon={
                     <View
@@ -75,12 +83,12 @@ function MarkerFilterOption({isVisible, hideOption}: MarkerFilterOptionProps) {
           )}
           {filterCondition === '평점' && (
             <>
-              {['1', '2', '3', '4', '5'].map(score => (
+              {scoreList.map(score => (
                 <CompoundOption.CheckBox
                   key={score}
-                  isChecked={markerFilter.filterItems[score]}
+                  isChecked={markerFilter.items[score]}
                   onPress={() => handleFilter(score)}>
-                  {score} 점
+                  {score}점
                 </CompoundOption.CheckBox>
               ))}
             </>
@@ -96,15 +104,15 @@ function MarkerFilterOption({isVisible, hideOption}: MarkerFilterOptionProps) {
 }
 
 const styles = StyleSheet.create({
+  filterContainer: {
+    flexDirection: 'row',
+    paddingHorizontal: 10,
+    justifyContent: 'space-around',
+  },
   marker: {
     width: 20,
     height: 20,
-    borderRadius: 20,
-  },
-  filterContainer: {
-    flexDirection: 'row',
-    paddingHorizontal: 15,
-    justifyContent: 'space-around',
+    borderRadius: 10,
   },
 });
 

@@ -1,4 +1,3 @@
-import {colors} from '@/constants';
 import React, {PropsWithChildren} from 'react';
 import {
   ActivityIndicator,
@@ -6,6 +5,8 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+
+import {colors} from '@/constants';
 
 function Loader({
   children,

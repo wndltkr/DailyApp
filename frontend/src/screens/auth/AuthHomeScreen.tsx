@@ -2,7 +2,6 @@ import React from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
 import {
   Dimensions,
-  Image,
   Platform,
   Pressable,
   SafeAreaView,
@@ -14,7 +13,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {
   appleAuth,
   AppleButton,
-  AppleError,
 } from '@invertase/react-native-apple-authentication';
 
 import {AuthStackParamList} from '@/navigations/stack/AuthStackNavigator';
@@ -24,6 +22,7 @@ import useAuth from '@/hooks/queries/useAuth';
 import Toast from 'react-native-toast-message';
 import useThemeStore from '@/store/useThemeStore';
 import {ThemeMode} from '@/types';
+import FastImage from 'react-native-fast-image';
 
 type AuthHomeScreenProps = StackScreenProps<
   AuthStackParamList,
@@ -63,7 +62,7 @@ function AuthHomeScreen({navigation}: AuthHomeScreenProps) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.imageContainer}>
-        <Image
+        <FastImage
           resizeMode="contain"
           style={styles.image}
           source={require('@/assets/matzip.png')}

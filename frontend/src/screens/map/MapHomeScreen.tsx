@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import {Alert, Pressable, StyleSheet, View} from 'react-native';
-import MapView, {
+import {
   Callout,
   LatLng,
   LongPressEvent,
   Marker,
   PROVIDER_GOOGLE,
 } from 'react-native-maps';
+import MapView from 'react-native-map-clustering';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -32,7 +33,7 @@ import {MapStackParamList} from '@/navigations/stack/MapStatckNavigator';
 import useLegendStorage from '@/hooks/useLegendStorage';
 import MapLegend from '@/components/map/MapLegend';
 import MarkerFilterOption from '@/components/map/MarkerFilterOption';
-import useMarkerFilter from '@/hooks/useMarkerFilter';
+import useMarkerFilter from '@/hooks/useMarkerFilterStorage';
 
 type Navigation = CompositeNavigationProp<
   StackNavigationProp<MapStackParamList>,
@@ -110,6 +111,7 @@ function MapHomeScreen() {
         customMapStyle={getMapStyle(theme)}
         onLongPress={handleLongPressMapView}
         onRegionChangeComplete={handleChangeDelta}
+        clusterColor={colors[theme].PINK_700}
         region={{
           ...userLocation,
           ...numbers.INITIAL_DELTA,

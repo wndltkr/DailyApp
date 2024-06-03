@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Dimensions,
-  Image,
   Platform,
   Pressable,
   StyleSheet,
@@ -16,6 +15,7 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {FeedStackParamList} from '@/navigations/stack/FeedStackNavigator';
 import useThemeStore from '@/store/useThemeStore';
 import {ThemeMode} from '@/types';
+import FastImage from 'react-native-fast-image';
 
 interface FeedItemProps {
   post: ResponsePost;
@@ -36,7 +36,7 @@ function FeedItem({post}: FeedItemProps) {
       <View>
         {post.images.length > 0 && (
           <View key={post.id} style={styles.imageContainer}>
-            <Image
+            <FastImage
               style={styles.image}
               source={{
                 uri: `${
@@ -45,7 +45,7 @@ function FeedItem({post}: FeedItemProps) {
                     : 'http://10.0.2.2:3030/'
                 }${post.images[0]?.uri}`,
               }}
-              resizeMode="cover"
+              resizeMode={FastImage.resizeMode.cover}
             />
           </View>
         )}

@@ -118,7 +118,6 @@ function useGetProfile(
     queryKey: [queryKeys.AUTH, queryKeys.GET_PROFILE],
     select: transformProfileCategory,
     ...queryOptions,
-    throwOnError: error => Number(error.response?.status) >= 500,
   });
 }
 
@@ -132,7 +131,6 @@ function useMutateCategory(mutationOptions?: UseMutationCustomOptions) {
       );
     },
     ...mutationOptions,
-    throwOnError: error => Number(error.response?.status) >= 500,
   });
 }
 
@@ -146,7 +144,6 @@ function useUpdateProfile(mutationOptions?: UseMutationCustomOptions) {
       );
     },
     ...mutationOptions,
-    throwOnError: error => Number(error.response?.status) >= 500,
   });
 }
 
@@ -159,7 +156,6 @@ function useLogout(mutationOptions?: UseMutationCustomOptions) {
       queryClient.resetQueries({queryKey: [queryKeys.AUTH]});
     },
     ...mutationOptions,
-    throwOnError: error => Number(error.response?.status) >= 500,
   });
 }
 
@@ -167,7 +163,6 @@ function useMutateDeleteAccount(mutationOptions?: UseMutationCustomOptions) {
   return useMutation({
     mutationFn: deleteAccount,
     ...mutationOptions,
-    throwOnError: error => Number(error.response?.status) >= 500,
   });
 }
 
@@ -187,6 +182,7 @@ function useAuth() {
     onSuccess: () => logoutMutation.mutate(null),
   });
   const categoryMutation = useMutateCategory();
+  const isLoginLoading = refreshTokenQuery.isPending;
 
   return {
     signupMutation,
@@ -199,6 +195,7 @@ function useAuth() {
     profileMutation,
     deleteAccountMutation,
     categoryMutation,
+    isLoginLoading,
   };
 }
 
