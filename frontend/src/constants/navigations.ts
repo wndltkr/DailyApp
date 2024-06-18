@@ -38,6 +38,12 @@ const settingNavigations = {
   EDIT_CATEGORY: 'EditCategory',
 } as const;
 
+const noticeNavigations = {
+  NOTICE_HOME: 'NoticeHome',
+  NOTICE_DETAIL: 'NoticeDetail',
+  EDIT_NOTICE: 'EditNotice',
+} as const;
+
 export {
   mainNavigations,
   authNavigations,
@@ -45,4 +51,5 @@ export {
   feedNavigations,
   feedTabNavigations,
   settingNavigations,
+  noticeNavigations,
 };

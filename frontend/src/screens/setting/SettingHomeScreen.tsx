@@ -44,7 +44,6 @@ function SettingHomeScreen({navigation}: SettingHomeScreenProps) {
           onPress={handlePressEditCategory}
         />
         <SettingItem title="다크 모드" onPress={darkModeOption.show} />
-        <SettingItem title="범례 표시" onPress={mapLegendOption.show} />
 
         <View style={styles.space} />
         <SettingItem
@@ -63,10 +62,6 @@ function SettingHomeScreen({navigation}: SettingHomeScreenProps) {
         <DarkModeOption
           isVisible={darkModeOption.isVisible}
           hideOption={darkModeOption.hide}
-        />
-        <MapLegendOption
-          isVisible={mapLegendOption.isVisible}
-          hideOption={mapLegendOption.hide}
         />
       </ScrollView>
     </SafeAreaView>

@@ -4,17 +4,20 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="5.31">
+    <list default="true" id="8a3c0e47-73b7-4a37-8ca8-06fb0c2682db" name="Changes" comment="6.03">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/navigations/stack/NoticeStackNavigator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/notice/NoticeDetailScreen.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/notice/NoticeHomeScreen.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/screens/notice/NoticePostScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/post/postForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/post/postForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/AuthHomeScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/LoginScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/LoginScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/auth/SignupScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/auth/SignupScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/setting/EditCategoryScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/setting/EditCategoryScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/screens/setting/EditProfileScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/setting/EditProfileScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/constants/navigations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/constants/navigations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/screens/setting/SettingHomeScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/screens/setting/SettingHomeScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/post/post.entity.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/post/post.entity.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +47,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/wndltkr/DailyApp.git&quot;,
-    &quot;accountId&quot;: &quot;2af0f5d7-0e31-4400-8043-f1b5d5371495&quot;
+    &quot;accountId&quot;: &quot;e6455588-be0f-41eb-891b-841c4f719549&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -68,13 +71,13 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.android.tools.idea.streaming.zoom.toolbar.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/Downloads/Matzip-server/Matzip-server/front&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/USER/Downloads/MyApplication&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -96,8 +99,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17890.1" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17890.1" />
       </set>
     </attachedChunks>
   </component>
@@ -149,7 +152,12 @@
       <workItem from="1717027844954" duration="22799000" />
       <workItem from="1717114377902" duration="25674000" />
       <workItem from="1717373375241" duration="11801000" />
-      <workItem from="1717397381653" duration="1592000" />
+      <workItem from="1717397381653" duration="6771000" />
+      <workItem from="1717546961055" duration="707000" />
+      <workItem from="1717750702245" duration="31000" />
+      <workItem from="1718081013736" duration="2000" />
+      <workItem from="1718669706510" duration="858000" />
+      <workItem from="1718678361918" duration="5322000" />
     </task>
     <task id="LOCAL-00001" summary="4.16">
       <option name="closed" value="true" />
@@ -471,7 +479,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717396178040</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="6.03">
+      <option name="closed" value="true" />
+      <created>1717399311071</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1717399311071</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,6 +523,7 @@
     <MESSAGE value="5.29" />
     <MESSAGE value="5.30" />
     <MESSAGE value="5.31" />
-    <option name="LAST_COMMIT_MESSAGE" value="5.31" />
+    <MESSAGE value="6.03" />
+    <option name="LAST_COMMIT_MESSAGE" value="6.03" />
   </component>
 </project>

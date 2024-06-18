@@ -46,7 +46,7 @@ export class Post extends BaseEntity {
   description: string;
 
   @Column({
-    type: 'timestamp with time zone',
+    type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP',
   })
   date: Date;
